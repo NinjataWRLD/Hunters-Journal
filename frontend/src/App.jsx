@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Header from './layout/Header';
 
 function App() {
 	const [todos, setTodos] = useState([])
@@ -11,11 +12,8 @@ function App() {
 
 	return (
 		<>
-			<ul>
-				{todos.map(todo => 
-					<li key={todo._id}>{todo.text}</li>
-				)}
-			</ul>
+			<Header ></Header>
+
 		</>
 	);
 
