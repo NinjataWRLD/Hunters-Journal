@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import hellhoundRoutes from './routes/hellhoundRoutes.js';
+import hellhoundRoutes from './API/Routes/HellhoundRoutes.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
