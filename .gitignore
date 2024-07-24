@@ -3,3 +3,6 @@
 
 # Ignore .env
 **/.env
+
+# Ignore dist
+**/dist

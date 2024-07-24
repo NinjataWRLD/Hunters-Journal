@@ -1,6 +1,16 @@
 import { Schema, model } from 'mongoose';
 
-const Hellhound = model('Hellhound', new Schema({
+interface IHellhound {
+  name: string;
+  invisibility: boolean;
+  hp: number;
+  age: number;
+  rarity: string;
+  strength: number;
+  weakness: string[];
+}
+
+const Hellhound = model('Hellhound', new Schema<IHellhound>({
   name: { type: String, required: true },
   invisibility: { type: Boolean, required: true },
   hp: { type: Number, required: true }, // 0-100
