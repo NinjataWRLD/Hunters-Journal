@@ -14,12 +14,12 @@ const hellhoundSchema = new Schema<IHellhound>({
   name: { type: String, required: true },
   invisibility: { type: Boolean, required: true },
   hp: { type: Number, required: true }, // 0-100
-  age: { type: Number, rquired: true },
+  age: { type: Number, required: true },
   rarity: { type: String, required: true }, // Common, Rare, Epic, Legendary
   strength: { type: Number, required: true },  // 1-50
   weakness: { type: [String], required: true },
 });
 
-const Hellhound = model('Hellhound', hellhoundSchema);
+const Hellhound = model<IHellhound>('Hellhound', hellhoundSchema);
 
 export default Hellhound;

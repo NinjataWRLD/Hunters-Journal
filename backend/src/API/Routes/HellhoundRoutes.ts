@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getHellhounds, getHellhound, postHellhound, patchHellhound, putHellhound, deleteHellhound, } from '../Controllers/HellhoundController';
+import { getHellhounds, getHellhound, postHellhound, patchHellhound, putHellhound, deleteHellhound, } from '../Controllers/HellhoundController.js';
 
 const router = Router();
 

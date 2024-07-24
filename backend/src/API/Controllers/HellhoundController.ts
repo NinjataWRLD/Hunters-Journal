@@ -1,5 +1,5 @@
 import Hellhound from '../../DB/models/Hellhound.js';
-import Repository from '../../DB/Repository';
+import Repository from '../../DB/Repository.js';
 import { apply_patch } from 'jsonpatch';
 import { Request, Response } from 'express';
 
