@@ -2,26 +2,30 @@ import { useState, useEffect } from 'react'
 import Header from './layout/Header';
 
 function App() {
-	const [todos, setTodos] = useState([])
+	const [hellhounds, setHellhounds] = useState([])
 
 	useEffect(() => {
-		if	(!todos.length) {
-			fetchTodos();
+		if	(!hellhounds.length) {
+			fetchHellhounds();
 		}
-	}, [todos]);
+	}, [hellhounds]);
 
 	return (
 		<>
 			<Header ></Header>
-
+			<ul>
+				{
+					hellhounds.map(hellhound => <li key={hellhound._id}>{hellhound.name}</li>)
+				}
+			</ul>
 		</>
 	);
 
-	async function fetchTodos() {
-		const res = await fetch('http://localhost:5069/api/todos');
-		const todos = await res.json();
+	async function fetchHellhounds() {
+		const res = await fetch('https://mern-demo-backend-lfjj.onrender.com/api/hellhounds/');
+		const hellhounds = await res.json();
 		
-		setTodos(todos);
+		setHellhounds(hellhounds);
 	}
 }
 

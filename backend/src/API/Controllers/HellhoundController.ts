@@ -31,7 +31,16 @@ export const getHellhound = async (req: Request, res: Response) => {
 
 export const postHellhound = async (req: Request, res: Response) => {
     try {
-        const hellhound = HellhoundRepository.addAsync(req.body);
+        const data = {
+            name: req.body.name,
+            invisibility: req.body.invisibility,
+            hp: req.body.hp,
+            age: req.body.age,
+            rarity: req.body.rarity,
+            strength: req.body.strength,
+            weakness: req.body.weakness,            
+        };
+        const hellhound = HellhoundRepository.addAsync(data);
         return res.status(201).send(hellhound);
     } catch (e) {
         return handleInternalServerError(res, e);

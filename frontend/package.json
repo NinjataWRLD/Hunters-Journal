@@ -11,6 +11,7 @@
     "start": "vite preview --port $PORT --host 0.0.0.0"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
     "react": "^18.3.1",
