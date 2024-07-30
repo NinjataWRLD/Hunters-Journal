@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import Header from './layout/Header';
+import Footer from './layout/Footer';
+import Body from './layout/Body';
+import '/css/styles.css';
 
 function App() {
 	const [hellhounds, setHellhounds] = useState([])
@@ -12,12 +15,16 @@ function App() {
 
 	return (
 		<>
-			<Header ></Header>
-			<ul>
+		<div className='retro-container'>
+			<Header />
+			<Body />
+			<ul> 
 				{
 					hellhounds.map(hellhound => <li key={hellhound._id}>{hellhound.name}</li>)
 				}
 			</ul>
+			<Footer />
+			</div>
 		</>
 	);
 
@@ -29,4 +36,4 @@ function App() {
 	}
 }
 
-export default App
+export default App;
