@@ -1,41 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Body.css';
 
-function Body() {
-    const [isPlaying, setIsPlaying] = useState(false);
-
-    const playMusic = () => {
-        const audio = document.getElementById('background-music');
-        if (audio) {
-            audio.play().catch(error => {
-                console.error("Error playing audio:", error);
-            });
-            setIsPlaying(true);
-        }
-    };
-
-    const stopMusic = () => {
-        const audio = document.getElementById('background-music');
-        if (audio) {
-            audio.pause();
-            // audio.currentTime = 0;
-            setIsPlaying(false);
-        }
-    };
-
-    const setVolume = (event) => {
-        const audio = document.getElementById('background-music');
-        if (audio) {
-            audio.volume = event.target.value;
-        }
-    };
-
+function Body({ isPlaying, setVolume, playMusic, stopMusic }) {
     return (
         <main>
-            <audio id="background-music" loop>
-                <source src="/music/music.mp3" type="audio/mpeg" />
-                Your browser does not support the audio element.
-            </audio>
             <section id="screen-1">
                 <article>
                     <header>
