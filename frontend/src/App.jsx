@@ -6,6 +6,7 @@ import '/css/styles.css';
 
 function App() {
 	const [hellhounds, setHellhounds] = useState([])
+	const [isPlaying, setIsPlaying] = useState(false);
 
 	useEffect(() => {
 		if	(!hellhounds.length) {
@@ -13,16 +14,45 @@ function App() {
 		}
 	}, [hellhounds]);
 
+	const playMusic = () => {
+        const audio = document.getElementById('background-music');
+        if (audio) {
+            audio.play().catch(error => {
+                console.error("Error playing audio:", error);
+            });
+            setIsPlaying(true);
+        }
+    };
+
+	const stopMusic = () => {
+        const audio = document.getElementById('background-music');
+        if (audio) {
+            audio.pause();
+            setIsPlaying(false);
+        }
+    };
+
+	const setVolume = (event) => {
+        const audio = document.getElementById('background-music');
+        if (audio) {
+            audio.volume = event.target.value;
+        }
+    };
+
 	return (
 		<>
 		<div className='retro-container'>
-			<Header />
-			<Body />
-			<ul> 
+			<Header isPlaying={isPlaying} playMusic={playMusic} stopMusic={stopMusic} />
+			<Body isPlaying={isPlaying} setVolume={setVolume} playMusic={playMusic} stopMusic={stopMusic} />
+			<audio id="background-music" loop>
+                <source src="/music/music.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+			{/* <ul> 
 				{
 					hellhounds.map(hellhound => <li key={hellhound._id}>{hellhound.name}</li>)
 				}
-			</ul>
+			</ul> */}
 			<Footer />
 			</div>
 		</>
