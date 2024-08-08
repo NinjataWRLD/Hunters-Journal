@@ -3,4 +3,5 @@ footer {
     display: flex;
     gap: 2rem;
     align-items: center;
+    max-height: 100px;
    }

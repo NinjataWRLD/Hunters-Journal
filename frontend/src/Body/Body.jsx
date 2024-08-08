@@ -1,7 +1,14 @@
 import React from 'react';
 import './Body.css';
 
-function Body({ isPlaying, setVolume, playMusic, stopMusic }) {
+function Body({ isPlaying, setVolume }) {
+    const sliderStyle = {'--quantity': 4};
+    const positionItem1 = {'--position': 1};
+    const positionItem2 = {'--position': 2};
+    const positionItem3 = {'--position': 3};
+    const positionItem4 = {'--position': 4};
+    
+
     return (
         <main>
             <section id="screen-1">
@@ -12,10 +19,16 @@ function Body({ isPlaying, setVolume, playMusic, stopMusic }) {
                     <div className="content">
                         DESCRIPTION OF THE SITE
                     </div>
-                    <div className="buttondiv">
-                        <button className="button-special">Start</button>
-                        <button id="play-music" className="button-special" onClick={playMusic}>Play Music</button>
-                        <button id="stop-music" className="button-special" onClick={stopMusic}>Stop the music</button>
+                    <div className="banner">
+                        <div className="slider" style={sliderStyle}>
+                            <div className="item" style={positionItem1}><button className="button-special">Create</button></div>
+                            <div className="item" style={positionItem2}><button className="button-special">Read</button></div>
+                            <div className="item" style={positionItem3}><button className="button-special">Edit</button></div>
+                            <div className="item" style={positionItem4}><button className="button-special">Delete</button></div>
+                        </div>
+                    </div>
+                    <div className="operation">
+                        <h2>CHOOSE OPERATION</h2>
                     </div>
                     {isPlaying && (
                         <div className="volume-control">

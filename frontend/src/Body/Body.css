@@ -23,3 +23,73 @@
 .volume-control label {
     margin-bottom: 10px;
 }
+
+main {
+    overflow: hidden;
+}
+
+section {
+    height: 100%;
+    overflow: hidden auto;
+    margin: 1rem 0;
+}
+
+.banner {
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .slider {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+}
+
+@keyframes autoRun {
+    from{
+        transform: perspective(1000px) rotateX(-6deg) rotateY(0deg);
+    }
+    to{
+        transform: perspective(1000px) rotateX(-6deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg)) 
+        translateZ(450px);
+}
+
+.banner .slider .item button{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.operation {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.operation h2 {
+    animation: fadeAnimation 3s infinite;
+}
+
+@keyframes fadeAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

@@ -7,7 +7,7 @@ import '/css/styles.css';
 function App() {
 	const [hellhounds, setHellhounds] = useState([])
 	const [isPlaying, setIsPlaying] = useState(false);
-
+	
 	useEffect(() => {
 		if	(!hellhounds.length) {
 			fetchHellhounds();
