@@ -1,8 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
-import './Body.css';
+import './Home.css';
+import Context from '../../context';
 
-function Body({ isPlaying, setVolume }) {
+function Body() {
+    const { isPlaying, setVolume } = useContext(Context);
+    
     const positionItem1 = { '--position': 1 };
     const positionItem2 = { '--position': 2 };
     const positionItem3 = { '--position': 3 };
