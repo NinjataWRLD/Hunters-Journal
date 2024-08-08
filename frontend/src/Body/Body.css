@@ -26,48 +26,45 @@
 
 main {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 section {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     overflow: hidden auto;
     margin: 1rem 0;
+    position: relative;
 }
 
 .banner {
-    width: 100%;
-    height: 50vh;
+    width: 90%;
+    height: 45vh;
     text-align: center;
     overflow: hidden;
     position: relative;
+    margin-left: 65px;
 }
 
 .banner .slider {
     position: absolute;
     width: 200px;
-    height: 150px;
-    top: 10%;
+    height: 120px;
+    top: 15%;
     left: calc(50% - 100px);
     transform-style: preserve-3d;
-    transform: perspective(1000px);
-    animation: autoRun 20s linear infinite;
-}
-
-@keyframes autoRun {
-    from{
-        transform: perspective(1000px) rotateX(-6deg) rotateY(0deg);
-    }
-    to{
-        transform: perspective(1000px) rotateX(-6deg) rotateY(360deg);
-    }
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease;
 }
 
 .banner .slider .item {
     position: absolute;
     inset: 0 0 0 0;
     transform: 
-        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg)) 
-        translateZ(450px);
+        rotateY(calc( (var(--position) - 1) * (360 / 4) * 1deg)) 
+        translateZ(400px);
 }
 
 .banner .slider .item button{
@@ -78,7 +75,7 @@ section {
 
 .operation {
     text-align: center;
-    margin-top: 15px;
+    margin-left: 25px;
 }
 
 .operation h2 {
@@ -92,4 +89,57 @@ section {
     50% {
         opacity: 0;
     }
+}
+
+.left-rotate, .right-rotate {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-120%);
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: url('../assets/cursor1.cur'), pointer;
+    font-family: "VT323", monospace;
+    z-index: 10;
+    width:80px;
+    height: 80px;
+    background: transparent;
+    color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10%;
+    font-size: 24px;
+}
+
+.left-rotate {
+    left: -10px;
+}
+
+.right-rotate {
+    right: -10px;
+}
+
+.left-rotate::before,
+.right-rotate::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.left-rotate::before {
+    border-width: 10px 15px 10px 0;
+    border-color: transparent yellow transparent transparent;
+}
+
+.right-rotate::before {
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent yellow;
+}
+
+.left-rotate:hover,
+.right-rotate:hover {
+    background-color: #555;
 }
