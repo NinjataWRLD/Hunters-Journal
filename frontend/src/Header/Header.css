@@ -1,0 +1,52 @@
+header {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.settings {
+    position: relative;
+}
+
+.settings-icon {
+    text-decoration: none;
+    font-size: 1.25em;
+    margin-left: 252px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+}
+
+.settings:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+.list-item:hover {
+    background-color: #ff5c00;
+}
