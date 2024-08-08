@@ -11,14 +11,12 @@
     "start": "vite preview --port $PORT --host 0.0.0.0"
   },
   "dependencies": {
-    "@fortawesome/react-fontawesome": "^0.2.2",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.39",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.6"
+    "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
