@@ -1,0 +1,6 @@
+footer {
+    margin-left: 50px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+   }

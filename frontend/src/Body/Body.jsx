@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '/css/styles.css';
+import './Body.css';
 
 function Body() {
     const [isPlaying, setIsPlaying] = useState(false);
