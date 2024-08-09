@@ -8,7 +8,6 @@ import '/css/styles.css';
 function App() {
 	const backgroundMusicRef = useRef();
 	const [isPlaying, setIsPlaying] = useState(false);
-
 	const playMusic = () => {
 		const audio = backgroundMusicRef.current;
 		if (audio) {

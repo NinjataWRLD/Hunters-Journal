@@ -9,7 +9,6 @@ library.add(fas);
 
 function Header() {
     const { playMusic, stopMusic } = useContext(Context);
-
     return (
         <header>
             <h1>HUNTER'S JOURNAL</h1>
