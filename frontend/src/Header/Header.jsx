@@ -16,7 +16,7 @@ function Header() {
                 <ul className="nav-menu">
                    <li><Link className="list-item" to="/">HOME TAB</Link></li>
                     <li className="settings">
-                        <Link to="#" className="settings-icon"><img src="src/assets/settings.png" alt="settings-icon" width={44} height={44}></img></Link>
+                        <Link to="#" className="settings-icon"><img src="/settings.png" alt="settings-icon" width={44} height={44}></img></Link>
                         <ul className="dropdown-menu">
                             <li><Link to="/contact">Log In</Link></li>
                             <li><Link id='play-music' onClick={playMusic}>Play music</Link></li>
