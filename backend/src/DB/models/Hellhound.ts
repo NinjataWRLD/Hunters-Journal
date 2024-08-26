@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 interface IHellhound {
+  image: string;
   name: string;
   invisibility: boolean;
   hp: number;
@@ -11,6 +12,7 @@ interface IHellhound {
 }
 
 const hellhoundSchema = new Schema<IHellhound>({
+  image: { type: String },
   name: { type: String, required: true },
   invisibility: { type: Boolean, required: true },
   hp: { type: Number, required: true }, // 0-100
