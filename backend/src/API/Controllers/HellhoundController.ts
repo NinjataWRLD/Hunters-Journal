@@ -38,7 +38,8 @@ export const postHellhound = async (req: Request, res: Response) => {
             age: req.body.age,
             rarity: req.body.rarity,
             strength: req.body.strength,
-            weakness: req.body.weakness,            
+            weakness: req.body.weakness,
+            image: req.body.image        
         };
         const hellhound = HellhoundRepository.addAsync(data);
         return res.status(201).send(hellhound);

@@ -1,18 +1,17 @@
 import axios from "axios";
 import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom";
 import "./Create.css"
 
 function Create() {
     const { register, handleSubmit, formState } = useForm();
+    const navigate = useNavigate();
 
     async function onSubmit(data) {
         const dto = { ...data };
         await axios.post(`https://mern-demo-backend-lfjj.onrender.com/api/hellhounds`, dto);
+        navigate("/browse");
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-    });
 
     return (
         <>
@@ -30,7 +29,7 @@ function Create() {
                     <input
                         id="age"
                         type="number"
-                        {...register("age", {required: true, maxLength: 4})}
+                        {...register("age", { required: true, maxLength: 4 })}
                         maxLength={4}
                         autoComplete="off"
                     />
@@ -60,7 +59,7 @@ function Create() {
                     <input
                         id="image"
                         type="text"
-                        {...register("image_url")}
+                        {...register("image")}
                         autoComplete="off"
                         className="url"
                         placeholder="(not required)"

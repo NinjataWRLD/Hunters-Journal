@@ -30,7 +30,6 @@ function App() {
 	};
 
 	const toggleMusic = () => {
-		debugger
 		if (isPlaying) {
 			stopMusic();
 		} else {
