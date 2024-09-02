@@ -75,13 +75,12 @@ h3 {
 
 .actions.expanded {
     width: 70%;
-    height: 80%;
+    height: 60%;
 }
 
 .delete, .edit {
     width: 20%;
     height: 20%;
-
 }
 
 .close {

@@ -4,4 +4,6 @@ footer {
     gap: 2rem;
     align-items: center;
     max-height: 100px;
-   }
+    position: absolute;
+    bottom: 15px;
+}
