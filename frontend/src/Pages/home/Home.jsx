@@ -36,20 +36,6 @@ function Body() {
                 <div className="operation">
                     <h2>CHOOSE OPERATION</h2>
                 </div>
-                {isPlaying && (
-                    <div className="volume-control">
-                        <label htmlFor="volume">Volume:</label>
-                        <input
-                            id="volume"
-                            type="range"
-                            min="0"
-                            max="1"
-                            step="0.1"
-                            defaultValue="0.2"
-                            onChange={toggleVolume}
-                        />
-                    </div>
-                )}
             </section>
         </main>
     );

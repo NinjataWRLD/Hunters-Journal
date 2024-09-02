@@ -30,6 +30,7 @@ function App() {
 	};
 
 	const toggleMusic = () => {
+		debugger
 		if (isPlaying) {
 			stopMusic();
 		} else {
@@ -55,6 +56,20 @@ function App() {
 						<source src="/music/music.mp3" type="audio/mpeg"/>
 						Your browser does not support the audio element.
 					</audio>
+					{isPlaying && (
+                <div className="volume-control">
+                    <label htmlFor="volume">Volume:</label>
+                    <input
+                        id="volume"
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        defaultValue="0.2"
+                        onChange={toggleVolume}
+                    />
+                </div>
+            )}
 					<Footer />
 				</div>
 			</Context.Provider>

@@ -19,12 +19,12 @@ function Header() {
                 <ul className="nav-menu">
                     <li><Link className="list-item" to="/">HOME TAB</Link></li>
                     <li className="settings">
-                        <Link to="#" className="settings-icon"><img src="/settings.png" alt="settings-icon" width={44} height={44}></img></Link>
+                        <div className="settings-icon"><img src="/settings.png" alt="settings-icon" width={44} height={44}></img></div>
                         <ul className="dropdown-menu">
                             <li>
-                                <Link id={isPlaying ? 'stop-music' : 'play-music'} onClick={toggleMusic}>
+                                <div id={isPlaying ? 'stop-music' : 'play-music'} onClick={toggleMusic}>
                                     {isPlaying ? 'Stop music' : 'Play music'}
-                                </Link>
+                                </div>
                             </li>
                             <li onClick={() => navigate('/browse')}>Monsters</li>
                             <li onClick={() => navigate('/humans')}>Humans</li>

@@ -18,10 +18,6 @@ function Read() {
         fetchHellhounds();
     }, []);
 
-    useEffect(() => {
-        console.log(showContent)
-    }, [showContent]);
-
     async function handleDelete(id) {
         await axios.delete(`https://mern-demo-backend-lfjj.onrender.com/api/hellhounds/${id}`);
         setHellhounds((hellhounds) => hellhounds.filter((h) => h._id !== id));
@@ -73,21 +69,6 @@ function Read() {
                     </>
                 )}
             </div>
-
-            {isPlaying && (
-                <div className="volume-control">
-                    <label htmlFor="volume">Volume:</label>
-                    <input
-                        id="volume"
-                        type="range"
-                        min="0"
-                        max="1"
-                        step="0.01"
-                        defaultValue="0.2"
-                        onChange={toggleVolume}
-                    />
-                </div>
-            )}
         </>
     );
 
