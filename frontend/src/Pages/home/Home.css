@@ -26,13 +26,16 @@
 
 main {
     overflow: hidden;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 section {
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: 100%;
     overflow: hidden auto;
     margin: 1rem 0;
@@ -40,12 +43,11 @@ section {
 }
 
 .banner {
-    width: 90%;
+    width: 100%;
     height: 45vh;
     text-align: center;
     overflow: hidden;
     position: relative;
-    margin-left: 65px;
 }
 
 .banner .slider {

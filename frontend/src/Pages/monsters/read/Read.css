@@ -79,8 +79,32 @@ h3 {
 }
 
 .delete, .edit {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
     width: 20%;
-    height: 20%;
+    height: 10%;
+    border: none;
+    border-radius: 10px;
+}
+
+.edit {
+    background-color: rgb(107, 184, 229);
+    left: 80px;
+}
+
+.delete {
+    background-color: rgba(205, 77, 77, 0.959);
+    right: 80px;
+}
+
+.edit:hover {
+    background-color: rgba(107, 184, 229, 0.384)
+}
+
+.delete:hover {
+    background-color: rgba(205, 77, 77, 0.502);
 }
 
 .close {
@@ -88,4 +112,9 @@ h3 {
     right: 20px;
     top: 20px;
     scale: 1.2;
+}
+
+section {
+    width: 90%;
+    height: 75%;
 }

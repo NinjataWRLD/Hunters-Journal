@@ -35,6 +35,8 @@ function Read() {
         setCurrentId(e.target.getAttribute("data-id"));
     };
 
+    const selectedHellhound = hellhounds.find(hellhound => hellhound._id === currentId);
+
     return (
         <>
             <div className="content" style={{ "display": (!showContent) ? "none" : "flex" }}>
@@ -53,8 +55,18 @@ function Read() {
             </div>
 
             <div className={`actions ${showButtons ? 'expanded' : ''}`}>
-                {showButtons && (
+                {showButtons && selectedHellhound && (
                     <>
+                        <section>
+                            <div>Name: {selectedHellhound.name}</div>
+                            <div>Age: {selectedHellhound.age}</div>
+                            <div>HP: {selectedHellhound.hp}</div>
+                            <div>Rarity: {selectedHellhound.rarity}</div>
+                            <div>Invisibility: {(selectedHellhound.invisibility) ? "Yes" : "No"}</div>
+                            <div>Strength: {selectedHellhound.strength}</div>
+                            <div>Weaknesses: {selectedHellhound.weakness.join(', ')}</div>
+                            <div>Image: {(selectedHellhound.image) ? `${selectedHellhound.image}` : "Not provided"}</div>
+                        </section>
                         <button onClick={() => navigate(`/edit/${currentId}`)} className="edit">Edit</button>
                         <button onClick={() => handleDelete(currentId)} className="delete">Delete</button>
                         <span onClick={handleMonsterClick} className="close">&#10006;</span>
