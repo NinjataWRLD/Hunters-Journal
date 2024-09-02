@@ -7,7 +7,7 @@ interface IHellhound {
   hp: number;
   age: number;
   rarity: string;
-  strength: number;
+  strengths: string[];
   weakness: string[];
 }
 
@@ -18,7 +18,7 @@ const hellhoundSchema = new Schema<IHellhound>({
   hp: { type: Number, required: true }, // 0-100
   age: { type: Number, required: true },
   rarity: { type: String, required: true }, // Common, Rare, Epic, Legendary
-  strength: { type: Number, required: true },  // 1-50
+  strengths: { type: [String], required: true },  // 1-50
   weakness: { type: [String], required: true },
 });
 
