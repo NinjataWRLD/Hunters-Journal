@@ -15,6 +15,7 @@ form {
     padding: 10px;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .firstCol {
@@ -34,7 +35,7 @@ form {
     flex-direction: row;
     justify-content: center;
     top: 100px;
-    gap: 15px;
+    gap: 30px;
 }
 
 .thirdCol {
@@ -49,15 +50,17 @@ form {
 
 input {
     width: 20%;
-    height: 40%;
+    height: 40px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.8rem;
     border-radius: 10px;
+    text-indent: 10px;
     background-color: grey;
 }
 
 input[type="submit"] {
     position: absolute;
+    text-align: center;
     bottom: 20px;
     width: 30%;
     height: 10%;
@@ -73,4 +76,65 @@ input[type="submit"]:hover {
 
 .large {
     height: 7rem;
+}
+
+select {
+    appearance: none;
+    width: 3.5rem;
+    padding: 10px;
+    border: 2px solid #838383;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select option {
+    background-color: #b4b4b4;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.url {
+    font-size: 0.6rem;
+    height: 40px;
+    width: 15rem;
+    text-indent: 10px;
+}
+
+.url::placeholder {
+    color: rgba(0, 0, 0, 0.525);
+    font-weight: bold;
+}
+
+textarea {
+    resize: none;
+    text-indent: 10px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: grey;
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    width: 7%;
+    text-indent: 2px;
+    font-size: 0.8rem;
+    height: 40px;
+    text-indent: 10px;
+    cursor: pointer;
 }

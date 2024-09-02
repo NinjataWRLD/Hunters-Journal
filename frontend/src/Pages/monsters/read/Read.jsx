@@ -42,14 +42,14 @@ function Read() {
             <div className="content" style={{ "display": (!showContent) ? "none" : "flex" }}>
                 <h2>Available creatures:</h2>
                 <div className="items">
-                    {hellhounds.map(hellhound => (
+                    {hellhounds.length ? hellhounds.map(hellhound => (
                         <div className="hell_list" key={hellhound._id}>
                             <ReadItem
                                 hellhound={hellhound}
                                 handleMonsterClick={handleMonsterClick}
                             />
                         </div>
-                    ))}
+                    )) : <p>No available creatures!</p>}
                 </div>
                 <h3>Click to modify</h3>
             </div>
@@ -58,14 +58,14 @@ function Read() {
                 {showButtons && selectedHellhound && (
                     <>
                         <section>
-                            <div>Name: {selectedHellhound.name}</div>
-                            <div>Age: {selectedHellhound.age}</div>
-                            <div>HP: {selectedHellhound.hp}</div>
-                            <div>Rarity: {selectedHellhound.rarity}</div>
-                            <div>Invisibility: {(selectedHellhound.invisibility) ? "Yes" : "No"}</div>
-                            <div>Strength: {selectedHellhound.strength}</div>
-                            <div>Weaknesses: {selectedHellhound.weakness.join(', ')}</div>
-                            <div>Image: {(selectedHellhound.image) ? `${selectedHellhound.image}` : "Not provided"}</div>
+                            <div>Name: <span className="inline-info">{selectedHellhound.name}</span></div>
+                            <div>Age: <span className="inline-info">{selectedHellhound.age}</span></div>
+                            <div>HP: <span className="inline-info">{selectedHellhound.hp}</span></div>
+                            <div>Rarity: <span className="inline-info">{selectedHellhound.rarity}</span></div>
+                            <div>Invisibility: <span className="inline-info">{(selectedHellhound.invisibility) ? "Yes" : "No"}</span></div>
+                            <div>Strengths: <span className="inline-info">{selectedHellhound.strengths.join(', ')}</span></div>
+                            <div>Weaknesses: <span className="inline-info">{selectedHellhound.weakness.join(', ')}</span></div>
+                            <div>Image: <span className="inline-info">{(selectedHellhound.image) ? `${selectedHellhound.image}` : "Not provided"}</span></div>
                         </section>
                         <button onClick={() => navigate(`/edit/${currentId}`)} className="edit">Edit</button>
                         <button onClick={() => handleDelete(currentId)} className="delete">Delete</button>
