@@ -1,7 +1,7 @@
 import App from '@/App';
 import HomePage from '@/pages/home/Home';
 import humans from './humans';
-import hellhounds from './hellhounds';
+import monsters from './monsters';
 
 export default [{
     path: '/',
@@ -12,6 +12,6 @@ export default [{
             element: <HomePage />
         },
         ...humans,
-        ...hellhounds,
+        ...monsters,
     ]
 }];

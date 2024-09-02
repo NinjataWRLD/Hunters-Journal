@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
-import { CreateHellhound } from '@/requests/hellhounds';
+import { CreateMonster } from '@/requests/monsters';
 import "./CreateMonster.css"
 
 function Create() {
@@ -11,7 +11,7 @@ function Create() {
         const dto = { ...data };
         
         try {
-            await CreateHellhound(dto);
+            await CreateMonster(dto);
             navigate("/browse");
         } catch (e) {
             console.error(e);

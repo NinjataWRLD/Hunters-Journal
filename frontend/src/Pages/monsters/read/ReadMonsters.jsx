@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetAllHellhounds, DeleteHellhound } from '@/requests/hellhounds';
+import { GetAllMonsters, DeleteMonster } from '@/requests/monsters';
 import MonsterItem from "./components/MonsterItem"
 import './ReadMonsters.css';
 
 function ReadMonsters() {
-    const [hellhounds, setHellhounds] = useState([]);
+    const [monsters, setMonsters] = useState([]);
     const [showContent, setShowContent] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
     const [currentId, setCurrentId] = useState('No id provided');
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchHellhounds();
+        fetchMonsters();
     }, []);
 
     async function handleDelete(id) {
         try {
-            await DeleteHellhound(id);
-            setHellhounds((hellhounds) => hellhounds.filter((h) => h._id !== id));
+            await DeleteMonster(id);
+            setMonsters((monster) => monster.filter((m) => m._id !== id));
             setShowButtons(false);
             setShowContent(true);
         } catch (error) {
@@ -32,17 +32,17 @@ function ReadMonsters() {
         setCurrentId(e.target.getAttribute("data-id"));
     };
 
-    const selectedHellhound = hellhounds.find(hellhound => hellhound._id === currentId);
+    const selectedMonster = monsters.find(monster => monster._id === currentId);
 
     return (
         <>
             <div className="content" style={{ "display": (!showContent) ? "none" : "flex" }}>
                 <h2>Available creatures:</h2>
                 <div className="items">
-                    {hellhounds.length ? hellhounds.map(hellhound => (
-                        <div className="hell_list" key={hellhound._id}>
+                    {monsters.length ? monsters.map(monster => (
+                        <div className="hell_list" key={monster._id}>
                             <MonsterItem
-                                hellhound={hellhound}
+                                monsterr={monster}
                                 handleMonsterClick={handleMonsterClick}
                             />
                         </div>
@@ -52,17 +52,17 @@ function ReadMonsters() {
             </div>
 
             <div className={`actions ${showButtons ? 'expanded' : ''}`}>
-                {showButtons && selectedHellhound && (
+                {showButtons && selectedMonster && (
                     <>
                         <section>
-                            <div>Name: <span className="inline-info">{selectedHellhound.name}</span></div>
-                            <div>Age: <span className="inline-info">{selectedHellhound.age}</span></div>
-                            <div>HP: <span className="inline-info">{selectedHellhound.hp}</span></div>
-                            <div>Rarity: <span className="inline-info">{selectedHellhound.rarity}</span></div>
-                            <div>Invisibility: <span className="inline-info">{(selectedHellhound.invisibility) ? "Yes" : "No"}</span></div>
-                            <div>Strengths: <span className="inline-info">{selectedHellhound.strengths}</span></div>
-                            <div>Weaknesses: <span className="inline-info">{(selectedHellhound.weakness) ? `${selectedHellhound.weakness}` : "None"}</span></div>
-                            <img className="image" src={selectedHellhound.image} alt="Not valid link" />
+                            <div>Name: <span className="inline-info">{selectedMonster.name}</span></div>
+                            <div>Age: <span className="inline-info">{selectedMonster.age}</span></div>
+                            <div>HP: <span className="inline-info">{selectedMonster.hp}</span></div>
+                            <div>Rarity: <span className="inline-info">{selectedMonster.rarity}</span></div>
+                            <div>Invisibility: <span className="inline-info">{(selectedMonster.invisibility) ? "Yes" : "No"}</span></div>
+                            <div>Strengths: <span className="inline-info">{selectedMonster.strengths}</span></div>
+                            <div>Weaknesses: <span className="inline-info">{(selectedMonster.weakness) ? `${selectedMonster.weakness}` : "None"}</span></div>
+                            <img className="image" src={selectedMonster.image} alt="Not valid link" />
                         </section>
                         <button onClick={() => navigate(`/edit/${currentId}`)} className="edit">Edit</button>
                         <button onClick={() => handleDelete(currentId)} className="delete">Delete</button>
@@ -73,11 +73,11 @@ function ReadMonsters() {
         </>
     );
 
-    async function fetchHellhounds() {
+    async function fetchMonsters() {
         try {
-            const { data } = await GetAllHellhounds();
+            const { data } = await GetAllMonsters();
             if (data) {
-                setHellhounds(data);
+                setMonsters(data);
             }
         } catch (e) {
             console.error(e);

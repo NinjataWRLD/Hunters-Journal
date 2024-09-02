@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-interface IHellhound {
+interface IHuman {
   image: string;
   name: string;
   invisibility: boolean;
@@ -11,7 +11,7 @@ interface IHellhound {
   weakness: string;
 }
 
-const hellhoundSchema = new Schema<IHellhound>({
+const humanchema = new Schema<IHuman>({
   image: { type: String },
   name: { type: String, required: true },
   invisibility: { type: Boolean, required: true }, //true, false
@@ -22,6 +22,6 @@ const hellhoundSchema = new Schema<IHellhound>({
   weakness: { type: String, required: true },
 });
 
-const Hellhound = model<IHellhound>('Hellhound', hellhoundSchema);
+const Human = model<IHuman>('Human', humanchema);
 
-export default Hellhound;
+export default Human;

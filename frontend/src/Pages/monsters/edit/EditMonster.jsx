@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { GetHellhound, EditHellhound } from '@/requests/hellhounds';
+import { GetMonster, EditMonster } from '@/requests/monsters';
 import "./EditMonster.css"
 
 function Edit() {
     const { id } = useParams();
-    const [hellhound, setHellhound] = useState({ _id: 0, name: '', invisibility: false, hp: 0, age: 0, rarity: '', strength: '', weakness: [], image: '' });
+    const [monster, setMonster] = useState({ _id: 0, name: '', invisibility: false, hp: 0, age: 0, rarity: '', strength: '', weakness: [], image: '' });
 
     useEffect(() => {
-        fetchHellhounds();
+        fetchMonster();
     }, []);
 
     async function handleSubmit(e) {
         e.preventDefault();
         const dto = {};
         try {
-            await EditHellhound(id, dto);
+            await EditMonster(id, dto);
         } catch (e) {
             console.error(e);
         }
@@ -24,19 +24,19 @@ function Edit() {
     return (
         <>
             <div>
-                <p>{hellhound.name}</p>
-                <p>{hellhound.age}</p>
-                <p>{hellhound.invisibility ? 'invisible' : 'visible'}</p>
-                <p>Weaknesses: {hellhound.weakness}</p>
-                <img src={hellhound.image} className="monster-image" />
+                <p>{monster.name}</p>
+                <p>{monster.age}</p>
+                <p>{monster.invisibility ? 'invisible' : 'visible'}</p>
+                <p>Weaknesses: {monster.weakness}</p>
+                <img src={monster.image} className="monster-image" />
             </div>
         </>
     );
     
-    async function fetchHellhounds() {
+    async function fetchMonster() {
         try {
-            const { data } = await GetHellhound(id);
-            setHellhound(data);
+            const { data } = await GetMonster(id);
+            setMonster(data);
         } catch (e) {
             console.error(e);
         }
