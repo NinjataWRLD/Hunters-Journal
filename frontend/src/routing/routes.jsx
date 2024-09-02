@@ -18,7 +18,7 @@ export default [{
             element: <CreatePage />
         },
         {
-            path: '/edit',
+            path: '/edit/:id',
             element: <EditPage />
         },
         {

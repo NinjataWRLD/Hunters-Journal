@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import ReadItem from "./ReadItem"
 import { useContext } from 'react';
 import Context from "../../context";
-import './Read.css'
+import axios from 'axios';
+import './Read.css';
 
 function Read() {
     const [hellhounds, setHellhounds] = useState([]);
@@ -12,14 +13,19 @@ function Read() {
         fetchHellhounds();
     }, []);
 
+    async function handleDelete(id) {
+        await axios.delete(`https://mern-demo-backend-lfjj.onrender.com/api/hellhounds/${id}`);
+        setHellhounds((hellhounds) => hellhounds.filter((h) => h._id !== id));
+    }
+
     return (
         <>
             <div className="content">
                 <h2>Available creatures:</h2>
                 <div className="items">
                     {hellhounds.map(hellhound => (
-                        <div id="hell_list" key={hellhound._id}>
-                            <ReadItem hellhound={hellhound} />
+                        <div className ="hell_list" key={hellhound._id}>
+                            <ReadItem hellhound={hellhound} onDelete={() => handleDelete(hellhound._id)} />
                         </div>
                     ))}
                 </div>

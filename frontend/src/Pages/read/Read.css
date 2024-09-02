@@ -4,7 +4,7 @@ body {
     text-align: center;
 }
 
-#hell_list {
+.hell_list {
     border: 2px solid yellow;
     padding: 10px;
     border-radius: 10px;
@@ -15,7 +15,7 @@ body {
     text-align: center;
 }
 
-#hell_list:hover {
+.hell_list:hover {
     background-color: hsl(0, 0%, 34%);
 }
 
