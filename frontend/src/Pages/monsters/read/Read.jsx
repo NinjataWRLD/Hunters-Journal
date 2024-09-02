@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import ReadItem from "./ReadItem"
-import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import Context from "../../../context";
-import axios from 'axios';
+import { GetAllHellhounds, DeleteHellhound } from '@/requests/hellhounds';
 import './Read.css';
 
 function Read() {
     const [hellhounds, setHellhounds] = useState([]);
-    const { isPlaying, toggleVolume } = useContext(Context);
     const [showContent, setShowContent] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
     const [currentId, setCurrentId] = useState('No id provided');
@@ -19,10 +16,14 @@ function Read() {
     }, []);
 
     async function handleDelete(id) {
-        await axios.delete(`https://mern-demo-backend-lfjj.onrender.com/api/hellhounds/${id}`);
-        setHellhounds((hellhounds) => hellhounds.filter((h) => h._id !== id));
-        setShowButtons(false);
-        setShowContent(true);
+        try {
+            await DeleteHellhound(id);
+            setHellhounds((hellhounds) => hellhounds.filter((h) => h._id !== id));
+            setShowButtons(false);
+            setShowContent(true);
+        } catch (error) {
+            console.error(e);
+        }
     }
 
     const handleMonsterClick = (e) => {
@@ -73,9 +74,14 @@ function Read() {
     );
 
     async function fetchHellhounds() {
-        await fetch(import.meta.env.VITE_API_URL + "/api/hellhounds")
-            .then(response => response.json())
-            .then(data => setHellhounds(data));
+        try {
+            const { data } = await GetAllHellhounds();
+            if (data) {
+                setHellhounds(data);
+            }
+        } catch (e) {
+            console.error(e);
+        }
     }
 }
 

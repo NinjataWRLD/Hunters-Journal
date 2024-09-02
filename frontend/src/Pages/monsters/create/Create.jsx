@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom";
+import { CreateHellhound } from '@/requests/hellhounds';
 import "./Create.css"
 
 function Create() {
@@ -9,8 +9,13 @@ function Create() {
 
     async function onSubmit(data) {
         const dto = { ...data };
-        await axios.post(`https://mern-demo-backend-lfjj.onrender.com/api/hellhounds`, dto);
-        navigate("/browse");
+        
+        try {
+            await CreateHellhound(dto);
+            navigate("/browse");
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return (

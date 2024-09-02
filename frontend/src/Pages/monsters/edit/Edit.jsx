@@ -1,16 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { GetHellhound, EditHellhound } from '@/requests/hellhounds';
 import "./Edit.css"
 
 function Edit() {
     const { id } = useParams();
     const [hellhound, setHellhound] = useState({ _id: 0, name: '', invisibility: false, hp: 0, age: 0, rarity: '', strength: '', weakness: [], image: '' });
-
-    async function fetchHellhounds() {
-        const { data } = await axios.get(`https://mern-demo-backend-lfjj.onrender.com/api/hellhounds/${id}`);
-        setHellhound(data);
-    }
 
     useEffect(() => {
         fetchHellhounds();
@@ -19,7 +14,11 @@ function Edit() {
     async function handleSubmit(e) {
         e.preventDefault();
         const dto = {};
-        await axios.put(`https://mern-demo-backend-lfjj.onrender.com/api/hellhounds/${id}`, dto);
+        try {
+            await EditHellhound(id, dto);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return (
@@ -33,6 +32,15 @@ function Edit() {
             </div>
         </>
     );
+    
+    async function fetchHellhounds() {
+        try {
+            const { data } = await GetHellhound(id);
+            setHellhound(data);
+        } catch (e) {
+            console.error(e);
+        }
+    }
 }
 
 export default Edit;
