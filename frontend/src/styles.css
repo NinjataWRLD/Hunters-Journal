@@ -82,7 +82,7 @@
     right: 0;
     width: 600px;
     height: 600px;
-    background-image: url('src/assets/logo.png');
+    background-image: url('/src/assets/logo.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -91,7 +91,7 @@
   }
   
   a, button, input, textarea {
-    cursor: url('src/assets/cursor1.cur'), pointer;
+    cursor: url('./assets/cursor1.cur'), pointer;
   }
   
   .button-special {

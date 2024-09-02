@@ -3,7 +3,7 @@ import Context from './context';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import { Outlet } from 'react-router-dom'
-import '/css/styles.css';
+import './styles.css';
 
 function App() {
 	const backgroundMusicRef = useRef();
