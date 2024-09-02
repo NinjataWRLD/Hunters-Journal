@@ -19,14 +19,14 @@ function Body() {
     function RedirectCreate() {
         location.href = "/create";
     }
-    function RedirectEdit() {
-        location.href = "/edit";
+    function RedirectCreateHuman() {
+        location.href = "/create-human";
     }
     function RedirectRead() {
         location.href = "/browse";
     }
-    function RedirectDelete() {
-        location.href = "/delete";
+    function RedirectHumans() {
+        location.href = "/humans";
     }
 
     return (
@@ -37,10 +37,10 @@ function Body() {
                 <button className="left-rotate" onClick={() => handleRotate(90)}></button>
                 <div className="banner">
                     <div className="slider" style={{ transform: `perspective(1000px) rotateX(0deg) rotateY(${rotation}deg)` }}>
-                        <div className="item" style={positionItem1}><button onClick={RedirectCreate} className="button-special">Create</button></div>
-                        <div className="item" style={positionItem2}><button onClick={RedirectRead} className="button-special">Browse</button></div>
-                        <div className="item" style={positionItem3}><button onClick={RedirectEdit} className="button-special">Edit</button></div>
-                        <div className="item" style={positionItem4}><button onClick={RedirectDelete} className="button-special">Delete</button></div>
+                        <div className="item" style={positionItem1}><button onClick={RedirectCreate} className="button-special">Create Monster</button></div>
+                        <div className="item" style={positionItem2}><button onClick={RedirectRead} className="button-special">Monsters</button></div>
+                        <div className="item" style={positionItem3}><button onClick={RedirectCreateHuman} className="button-special">Create Human</button></div>
+                        <div className="item" style={positionItem4}><button onClick={RedirectHumans} className="button-special">Humans</button></div>
                     </div>
                 </div>
                 <button className="right-rotate" onClick={() => handleRotate(-90)}></button>

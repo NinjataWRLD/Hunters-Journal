@@ -4,6 +4,8 @@ import CreatePage from '../Pages/create/Create';
 import EditPage from '../Pages/edit/Edit';
 import ReadPage from '../Pages/read/Read';
 import DeletePage from '../Pages/delete/Delete';
+import HumansPage from '../Pages/humans/browse/humans';
+import HumanCreate from '../Pages/humans/create/CreateHuman'
 
 export default [{
     path: '/',
@@ -28,6 +30,14 @@ export default [{
         {
             path: '/delete',
             element: <DeletePage />
+        },
+        {
+            path: '/humans',
+            element: <HumansPage />
+        },
+        {
+            path: '/create-human',
+            element: <HumanCreate />
         }
     ]
 }];
