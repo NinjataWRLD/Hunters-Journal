@@ -1,19 +1,18 @@
 import { useState, useRef } from 'react'
-import Context from './context';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
 import { Outlet } from 'react-router-dom'
+import Context from '@/context';
+import Header from '@/layout/header/Header';
+import Footer from '@/layout/footer/Footer';
 import './styles.css';
 
 function App() {
 	const backgroundMusicRef = useRef();
 	const [isPlaying, setIsPlaying] = useState(false);
-	const [volume, setVolume] = useState(0.2);
 
 	const playMusic = () => {
 		const audio = backgroundMusicRef.current;
 		if (audio) {
-			audio.volume = volume;
+			audio.volume = 0.2;
 			audio.play().catch(error => {
 				console.error("Error playing audio:", error);
 			});

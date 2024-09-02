@@ -1,4 +1,4 @@
-function Human() {
+function ReadHumans() {
     return (
        <>
        <h2>Available Humans:</h2>
@@ -6,4 +6,4 @@ function Human() {
     );
 }
 
-export default Human;
+export default ReadHumans;

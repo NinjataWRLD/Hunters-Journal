@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import ReadItem from "./ReadItem"
 import { useNavigate } from "react-router-dom";
 import { GetAllHellhounds, DeleteHellhound } from '@/requests/hellhounds';
-import './Read.css';
+import MonsterItem from "./components/MonsterItem"
+import './ReadMonsters.css';
 
-function Read() {
+function ReadMonsters() {
     const [hellhounds, setHellhounds] = useState([]);
     const [showContent, setShowContent] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
@@ -41,7 +41,7 @@ function Read() {
                 <div className="items">
                     {hellhounds.length ? hellhounds.map(hellhound => (
                         <div className="hell_list" key={hellhound._id}>
-                            <ReadItem
+                            <MonsterItem
                                 hellhound={hellhound}
                                 handleMonsterClick={handleMonsterClick}
                             />
@@ -85,4 +85,4 @@ function Read() {
     }
 }
 
-export default Read;
+export default ReadMonsters;

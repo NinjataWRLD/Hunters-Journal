@@ -1,11 +1,8 @@
-import { useContext } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Context from '../../context';
 import './Home.css';
 
 function Body() {
-    const { isPlaying, toggleVolume } = useContext(Context);
     const navigate = useNavigate();
 
     const positionItem1 = { '--position': 1 };
@@ -26,9 +23,9 @@ function Body() {
                 <button className="left-rotate" onClick={() => handleRotate(90)}></button>
                 <div className="banner">
                     <div className="slider" style={{ transform: `perspective(1000px) rotateX(0deg) rotateY(${rotation}deg)` }}>
-                        <div className="item" style={positionItem1}><button onClick={() => {navigate("/create")}} className="button-special">Create Monster</button></div>
-                        <div className="item" style={positionItem2}><button onClick={() => {navigate("/browse")}} className="button-special">Monsters</button></div>
-                        <div className="item" style={positionItem3}><button onClick={() => {navigate("/humans/create")}} className="button-special">Create Human</button></div>
+                        <div className="item" style={positionItem1}><button onClick={() => {navigate("/monsters/new")}} className="button-special">Create Monster</button></div>
+                        <div className="item" style={positionItem2}><button onClick={() => {navigate("/monsters")}} className="button-special">Monsters</button></div>
+                        <div className="item" style={positionItem3}><button onClick={() => {navigate("/humans/new")}} className="button-special">Create Human</button></div>
                         <div className="item" style={positionItem4}><button onClick={() => {navigate("/humans")}} className="button-special">Humans</button></div>
                     </div>
                 </div>

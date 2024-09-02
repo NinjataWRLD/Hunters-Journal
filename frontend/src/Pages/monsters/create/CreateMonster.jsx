@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form"
 import { CreateHellhound } from '@/requests/hellhounds';
-import "./Create.css"
+import "./CreateMonster.css"
 
 function Create() {
-    const { register, handleSubmit, formState } = useForm();
+    const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
 
     async function onSubmit(data) {

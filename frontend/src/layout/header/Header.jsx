@@ -1,17 +1,11 @@
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
 import { useContext } from 'react';
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+import Context from '@/context';
 import './Header.css';
-import Context from '../context';
-
-library.add(fas);
 
 function Header() {
     const { toggleMusic, isPlaying } = useContext(Context);
-    const navigate = useNavigate();
-
+    
     return (
         <header>
             <h1>HUNTER'S JOURNAL</h1>
@@ -26,8 +20,8 @@ function Header() {
                                     {isPlaying ? 'Stop music' : 'Play music'}
                                 </div>
                             </li>
-                            <li onClick={() => navigate('/browse')}>Monsters</li>
-                            <li onClick={() => navigate('/humans')}>Humans</li>
+                            <li><Link to="/monsters">Monsters</Link></li>
+                            <li><Link to="/humans   ">Humans</Link></li>
                         </ul>
                     </li>
                 </ul>

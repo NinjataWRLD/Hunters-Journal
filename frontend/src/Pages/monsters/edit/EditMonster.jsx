@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { GetHellhound, EditHellhound } from '@/requests/hellhounds';
-import "./Edit.css"
+import "./EditMonster.css"
 
 function Edit() {
     const { id } = useParams();
