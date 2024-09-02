@@ -27,6 +27,7 @@ function Header() {
                                 </Link>
                             </li>
                             <li onClick={() => navigate('/browse')}>Monsters</li>
+                            <li onClick={() => navigate('/humans')}>Humans</li>
                         </ul>
                     </li>
                 </ul>

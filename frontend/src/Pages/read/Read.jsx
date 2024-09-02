@@ -29,7 +29,7 @@ function Read() {
                         </div>
                     ))}
                 </div>
-                <h3>Click to edit</h3>
+                <h3>Click to modify</h3>
             </div>
 
             {isPlaying && (
