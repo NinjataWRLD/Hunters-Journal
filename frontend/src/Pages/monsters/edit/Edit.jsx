@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./Edit.css"
 
 function Edit() {
     const { id } = useParams();
@@ -27,8 +28,8 @@ function Edit() {
                 <p>{hellhound.name}</p>
                 <p>{hellhound.age}</p>
                 <p>{hellhound.invisibility ? 'invisible' : 'visible'}</p>
-                <p>Weaknesses: {hellhound.weakness.join(', ')}</p>
-                <p>{hellhound.image}</p>
+                <p>Weaknesses: {hellhound.weakness}</p>
+                <img src={hellhound.image} className="monster-image" />
             </div>
         </>
     );

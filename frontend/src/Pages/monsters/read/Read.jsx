@@ -61,7 +61,7 @@ function Read() {
                             <div>Invisibility: <span className="inline-info">{(selectedHellhound.invisibility) ? "Yes" : "No"}</span></div>
                             <div>Strengths: <span className="inline-info">{selectedHellhound.strengths}</span></div>
                             <div>Weaknesses: <span className="inline-info">{(selectedHellhound.weakness) ? `${selectedHellhound.weakness}` : "None"}</span></div>
-                            <div>Image: <span className="inline-info">{(selectedHellhound.image) ? `${selectedHellhound.image}` : "Not provided"}</span></div>
+                            <img className="image" src={selectedHellhound.image} alt="Not valid link" />
                         </section>
                         <button onClick={() => navigate(`/edit/${currentId}`)} className="edit">Edit</button>
                         <button onClick={() => handleDelete(currentId)} className="delete">Delete</button>

@@ -122,3 +122,12 @@ section {
 .inline-info {
     color:aqua;
 }
+
+.image {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px;
+}
