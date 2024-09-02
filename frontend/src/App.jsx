@@ -26,6 +26,14 @@ function App() {
 		}
 	};
 
+	const toggleMusic = () => {
+		if (isPlaying) {
+			stopMusic();
+		} else {
+			playMusic();
+		}
+	};
+
 	const setVolume = (event) => {
 		const audio = backgroundMusicRef.current;
 		if (audio) {
@@ -35,7 +43,7 @@ function App() {
 	
 	return (
 		<div className="old-crt-monitor">
-			<Context.Provider value={{ isPlaying, setVolume, playMusic, stopMusic }}>
+			<Context.Provider value={{ isPlaying, setVolume, playMusic, stopMusic, toggleMusic }}>
 				<div className='retro-container'>
 					<Header />
 					<Outlet />
