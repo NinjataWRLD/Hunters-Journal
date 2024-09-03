@@ -18,7 +18,7 @@ form {
     z-index: 10;
 }
 
-.firstCol {
+.first-col {
     width: 100%;
     position: absolute;
     display: flex;
@@ -28,7 +28,7 @@ form {
     gap: 30px;
 }
 
-.secondCol {
+.second-col {
     width: 100%;
     position: absolute;
     display: flex;
@@ -38,7 +38,7 @@ form {
     gap: 30px;
 }
 
-.thirdCol {
+.third-col {
     width: 100%;
     position: absolute;
     display: flex;

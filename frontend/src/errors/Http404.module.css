@@ -1,0 +1,22 @@
+.title {
+    color: hsla(0, 100%, 50%, 0.566);
+    text-shadow: 3px 2px 4px rgba(232, 255, 85, 0.404);
+}
+
+.title:hover {
+    opacity: 0.6;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon {
+    scale: 2.3;
+    color: hsla(0, 100%, 50%, 0.566);
+    margin-bottom: 1.2em;
+}

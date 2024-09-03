@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { CreateMonster } from '@/requests/monsters';
-import "./CreateMonster.css"
+import style from "./CreateMonster.module.css";
 
 function Create() {
     const { register, handleSubmit } = useForm();
@@ -21,7 +21,7 @@ function Create() {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="firstCol">
+                <div className={style["first-col"]}>
                     <label htmlFor="name">Name:</label>
                     <input
                         id="name"
@@ -54,7 +54,7 @@ function Create() {
                         <option value="Legendary">Legendary</option>
                     </select>
                 </div>
-                <div className="secondCol">
+                <div className={style["second-col"]}>
                     <label htmlFor="invisibility">Invisibility:</label>
                     <select id="invisibility" {...register("invisibility")}>
                         <option value={false}>Visible</option>
@@ -66,24 +66,24 @@ function Create() {
                         type="text"
                         {...register("image")}
                         autoComplete="off"
-                        className="url"
+                        className={style.url}
                         placeholder="(not required)"
                     />
                 </div>
-                <div className="thirdCol">
+                <div className={style["third-col"]}>
                     <label htmlFor="strength">Power and Abilities:</label>
                     <textarea
                         id="strength"
                         {...register("strength")}
                         autoComplete="off"
-                        className="large"
+                        className={style.large}
                     />
                     <label htmlFor="weakness">Weaknesses:</label>
                     <textarea
                         id="weakness"
                         {...register("weakness")}
                         autoComplete="off"
-                        className="large"
+                        className={style.large}
                     />
                 </div>
                 <input

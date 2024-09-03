@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GetAllMonsters, DeleteMonster } from '@/requests/monsters';
 import MonsterItem from "./components/MonsterItem"
+import ReadMonster from "./components/ReadMonster"
 import styles from './ReadMonsters.module.css';
 
 function ReadMonsters() {
@@ -52,23 +53,12 @@ function ReadMonsters() {
             </div>
 
             <div className={`${styles.actions} ${showButtons ? styles.expanded : ''}`}>
-                {showButtons && selectedMonster && (
-                    <>
-                        <section>
-                            <div>Name: <span className={styles["inline-info"]}>{selectedMonster.name}</span></div>
-                            <div>Age: <span className={styles["inline-info"]}>{selectedMonster.age}</span></div>
-                            <div>HP: <span className={styles["inline-info"]}>{selectedMonster.hp}</span></div>
-                            <div>Rarity: <span className={styles["inline-info"]}>{selectedMonster.rarity}</span></div>
-                            <div>Invisibility: <span className={styles["inline-info"]}>{(selectedMonster.invisibility) ? "Yes" : "No"}</span></div>
-                            <div>Strengths: <span className={styles["inline-info"]}>{(selectedMonster.strength)}</span></div>
-                            <div>Weaknesses: <span className={styles["inline-info"]}>{(selectedMonster.weakness) ? `${selectedMonster.weakness}` : "None"}</span></div>
-                            <img className={styles.image} src={selectedMonster.image} alt="Not valid link" />
-                        </section>
-                        <button onClick={() => navigate(`/edit/${currentId}`)} className={styles.edit}>Edit</button>
-                        <button onClick={() => handleDelete(currentId)} className={styles.delete}>Delete</button>
-                        <span onClick={handleMonsterClick} className={styles.close}>&#10006;</span>
-                    </>
-                )}
+                {showButtons && selectedMonster &&
+                    <ReadMonster
+                        monster={selectedMonster}
+                        onMonsterClick={handleMonsterClick}
+                        onDelete={handleDelete}
+                    />}
             </div>
         </>
     );
