@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { GetAllMonsters, DeleteMonster } from '@/requests/monsters';
 import MonsterItem from "./components/MonsterItem"
 import ReadMonster from "./components/ReadMonster"
@@ -10,7 +9,6 @@ function ReadMonsters() {
     const [showContent, setShowContent] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
     const [currentId, setCurrentId] = useState('No id provided');
-    const navigate = useNavigate();
 
     useEffect(() => {
         fetchMonsters();
