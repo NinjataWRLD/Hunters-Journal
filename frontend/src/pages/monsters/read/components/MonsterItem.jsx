@@ -1,4 +1,4 @@
-import "../ReadMonsters.css";
+import "../ReadMonsters.module.css";
 
 function ReadItem({ monster, handleMonsterClick }) {
     return (

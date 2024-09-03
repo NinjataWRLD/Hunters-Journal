@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GetAllMonsters, DeleteMonster } from '@/requests/monsters';
 import MonsterItem from "./components/MonsterItem"
-import './ReadMonsters.css';
+import styles from './ReadMonsters.module.css';
 
 function ReadMonsters() {
     const [monsters, setMonsters] = useState([]);
@@ -36,13 +36,13 @@ function ReadMonsters() {
 
     return (
         <>
-            <div className="content" style={{ "display": (!showContent) ? "none" : "flex" }}>
+            <div className={styles.content} style={{ "display": (!showContent) ? "none" : "flex" }}>
                 <h2>Available creatures:</h2>
-                <div className="items">
+                <div className={styles.items}>
                     {monsters.length ? monsters.map(monster => (
-                        <div className="hell_list" key={monster._id}>
+                        <div className={styles.hell_list} key={monster._id}>
                             <MonsterItem
-                                monsterr={monster}
+                                monster={monster}
                                 handleMonsterClick={handleMonsterClick}
                             />
                         </div>
@@ -51,22 +51,22 @@ function ReadMonsters() {
                 <h3>Click to modify</h3>
             </div>
 
-            <div className={`actions ${showButtons ? 'expanded' : ''}`}>
+            <div className={`${styles.actions} ${showButtons ? styles.expanded : ''}`}>
                 {showButtons && selectedMonster && (
                     <>
                         <section>
-                            <div>Name: <span className="inline-info">{selectedMonster.name}</span></div>
-                            <div>Age: <span className="inline-info">{selectedMonster.age}</span></div>
-                            <div>HP: <span className="inline-info">{selectedMonster.hp}</span></div>
-                            <div>Rarity: <span className="inline-info">{selectedMonster.rarity}</span></div>
-                            <div>Invisibility: <span className="inline-info">{(selectedMonster.invisibility) ? "Yes" : "No"}</span></div>
-                            <div>Strengths: <span className="inline-info">{selectedMonster.strengths}</span></div>
-                            <div>Weaknesses: <span className="inline-info">{(selectedMonster.weakness) ? `${selectedMonster.weakness}` : "None"}</span></div>
-                            <img className="image" src={selectedMonster.image} alt="Not valid link" />
+                            <div>Name: <span className={styles["inline-info"]}>{selectedMonster.name}</span></div>
+                            <div>Age: <span className={styles["inline-info"]}>{selectedMonster.age}</span></div>
+                            <div>HP: <span className={styles["inline-info"]}>{selectedMonster.hp}</span></div>
+                            <div>Rarity: <span className={styles["inline-info"]}>{selectedMonster.rarity}</span></div>
+                            <div>Invisibility: <span className={styles["inline-info"]}>{(selectedMonster.invisibility) ? "Yes" : "No"}</span></div>
+                            <div>Strengths: <span className={styles["inline-info"]}>{(selectedMonster.strength)}</span></div>
+                            <div>Weaknesses: <span className={styles["inline-info"]}>{(selectedMonster.weakness) ? `${selectedMonster.weakness}` : "None"}</span></div>
+                            <img className={styles.image} src={selectedMonster.image} alt="Not valid link" />
                         </section>
-                        <button onClick={() => navigate(`/edit/${currentId}`)} className="edit">Edit</button>
-                        <button onClick={() => handleDelete(currentId)} className="delete">Delete</button>
-                        <span onClick={handleMonsterClick} className="close">&#10006;</span>
+                        <button onClick={() => navigate(`/edit/${currentId}`)} className={styles.edit}>Edit</button>
+                        <button onClick={() => handleDelete(currentId)} className={styles.delete}>Delete</button>
+                        <span onClick={handleMonsterClick} className={styles.close}>&#10006;</span>
                     </>
                 )}
             </div>
