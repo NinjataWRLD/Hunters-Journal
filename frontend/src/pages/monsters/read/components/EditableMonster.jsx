@@ -15,80 +15,77 @@ function EditableMonster({ monster }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="name">
+            <form className={styles["edit-form"]} onSubmit={handleSubmit(onSubmit)}>
+                <label htmlFor="age" className={styles["edit-info"]}>
+                    Age:
+                    <input
+                        type="number"
+                        id="age"
+                        {...register("age")}
+                        style={{width: 100}}
+                    />
+                </label>
+                <label htmlFor="name" className={styles["edit-info"]}>
                     Name:
                     <input
+                        type="text"
                         id="name"
-                        className={styles["inline-info"]}
                         {...register("name")}
                     />
                 </label>
-                <label htmlFor="age">
-                    Age:
-                    <input
-                        id="age"
-                        className={styles["inline-info"]}
-                        {...register("age")}
-                    />
-                </label>
-                <label htmlFor="hp">
+                <label htmlFor="hp" className={styles["edit-info"]}>
                     HP:
                     <input
+                        type="number"
                         id="hp"
-                        className={styles["inline-info"]}
                         {...register("hp")}
+                        style={{width: 100}}
                     />
                 </label>
-                <label htmlFor="rarity">
+                <label htmlFor="rarity" className={styles["edit-info"]}>
                     Rarity:
-                    <input
-                        id="rarity"
-                        className={styles["inline-info"]}
-                        {...register("rarity")}
-                    />
+                    <select id="rarity" {...register("rarity")}>
+                        <option value="Common">Common</option>
+                        <option value="Rare">Rare</option>
+                        <option value="Epic">Epic</option>
+                        <option value="Legendary">Legendary</option>
+                    </select>
                 </label>
-                <label htmlFor="invisibility">
-                    Invisibility:
-                    <input
-                        id="invisibility"
-                        type="checkbox"
-                        className={styles["inline-info"]}
-                        {...register("invisibility")}
-                    />
-                </label>
-                <label htmlFor="strength">
+                <label htmlFor="strength" className={styles["edit-info"]}>
                     Strengths:
-                    <input
+                    <textarea
                         id="strength"
-                        className={styles["inline-info"]}
                         {...register("strength")}
                     />
                 </label>
-                <label htmlFor="weakness">
+                <label htmlFor="weakness" className={styles["edit-info"]}>
                     Weaknesses:
-                    <input
+                    <textarea
                         id="weakness"
-                        className={styles["inline-info"]}
                         {...register("weakness")}
                     />
                 </label>
-                <label htmlFor="image">
+                <label htmlFor="invisibility" className={styles["edit-info"]}>
+                    Invisibility:
+                    <select style={{"fontWeight": "bold", "width": 90}} id="invisibility" {...register("invisibility")}>
+                        <option value={false}>Visible</option>
+                        <option value={true}>Invisible</option>
+                    </select>
+                </label>
+                <label htmlFor="image" className={styles.url}>
                     Image:
                     <input
+                        type="text"
                         id="image"
-                        className={styles.image}
                         {...register("image")}
                     />
                 </label>
-                <label htmlFor="submit">
                     <input
+                    className={styles.submit}
                         id="submit"
                         type="submit"
                         value={"Submit"}
                     />
-                </label>
-
             </form>
         </>
     );
