@@ -180,3 +180,8 @@ input[type="number"] {
     justify-self: right;
     text-align: center;
 }
+
+a {
+    color: yellow;
+    text-decoration: none;
+}

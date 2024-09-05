@@ -1,13 +1,15 @@
 import { useForm } from "react-hook-form";
 import { EditMonster } from "../../../../requests/monsters";
-import styles from "../ReadMonsters.module.css"
+import "../ReadMonsters.css"
 
-function EditableMonster({ monster }) {
+function EditableMonster({ monster, setIsEditable, setMonster }) {
     const { register, handleSubmit } = useForm({ defaultValues: monster });
 
     async function onSubmit(data) {
         try {
             await EditMonster(monster._id, data);
+            setIsEditable(false);
+            setMonster(data);
         } catch (error) {
             console.error(error);
         }
@@ -15,8 +17,8 @@ function EditableMonster({ monster }) {
 
     return (
         <>
-            <form className={styles["edit-form"]} onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="age" className={styles["edit-info"]}>
+            <form className={"edit-form"} onSubmit={handleSubmit(onSubmit)}>
+                <label htmlFor="age" className={"edit-info"}>
                     Age:
                     <input
                         type="number"
@@ -25,7 +27,7 @@ function EditableMonster({ monster }) {
                         style={{width: 100}}
                     />
                 </label>
-                <label htmlFor="name" className={styles["edit-info"]}>
+                <label htmlFor="name" className={"edit-info"}>
                     Name:
                     <input
                         type="text"
@@ -33,7 +35,7 @@ function EditableMonster({ monster }) {
                         {...register("name")}
                     />
                 </label>
-                <label htmlFor="hp" className={styles["edit-info"]}>
+                <label htmlFor="hp" className={"edit-info"}>
                     HP:
                     <input
                         type="number"
@@ -42,7 +44,7 @@ function EditableMonster({ monster }) {
                         style={{width: 100}}
                     />
                 </label>
-                <label htmlFor="rarity" className={styles["edit-info"]}>
+                <label htmlFor="rarity" className={"edit-info"}>
                     Rarity:
                     <select id="rarity" {...register("rarity")}>
                         <option value="Common">Common</option>
@@ -51,28 +53,28 @@ function EditableMonster({ monster }) {
                         <option value="Legendary">Legendary</option>
                     </select>
                 </label>
-                <label htmlFor="strength" className={styles["edit-info"]}>
+                <label htmlFor="strength" className={"edit-info"}>
                     Strengths:
                     <textarea
                         id="strength"
                         {...register("strength")}
                     />
                 </label>
-                <label htmlFor="weakness" className={styles["edit-info"]}>
+                <label htmlFor="weakness" className={"edit-info"}>
                     Weaknesses:
                     <textarea
                         id="weakness"
                         {...register("weakness")}
                     />
                 </label>
-                <label htmlFor="invisibility" className={styles["edit-info"]}>
+                <label htmlFor="invisibility" className={"edit-info"}>
                     Invisibility:
                     <select style={{"fontWeight": "bold", "width": 90}} id="invisibility" {...register("invisibility")}>
                         <option value={false}>Visible</option>
                         <option value={true}>Invisible</option>
                     </select>
                 </label>
-                <label htmlFor="image" className={styles.url}>
+                <label htmlFor="image" className="url">
                     Image:
                     <input
                         type="text"
@@ -81,7 +83,7 @@ function EditableMonster({ monster }) {
                     />
                 </label>
                     <input
-                    className={styles.submit}
+                    className="submit"
                         id="submit"
                         type="submit"
                         value={"Submit"}

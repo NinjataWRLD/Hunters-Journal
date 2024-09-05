@@ -1,11 +1,12 @@
-import "../ReadMonsters.module.css";
+import { Link } from "react-router-dom";
+import "../ReadMonsters.css";
 
 function ReadItem({ monster, handleMonsterClick }) {
     return (
         <div>
-            <p data-id={monster._id} onClick={handleMonsterClick}>
+            <Link to={`/monsters/${monster._id}`} data-id={monster._id} onClick={handleMonsterClick}>
                 {monster.name}
-            </p>
+            </Link>
         </div>
     );
 }
