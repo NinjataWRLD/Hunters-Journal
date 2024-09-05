@@ -11,7 +11,7 @@ function ReadMonsters() {
         fetchMonsters();
     }, []);
 
-    const handleMonsterClick = (e) => {
+    const handleMonsterClick = () => {
         setShowContent(prev => !prev);
     };
 
