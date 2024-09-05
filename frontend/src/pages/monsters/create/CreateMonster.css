@@ -10,7 +10,7 @@ form {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-top: 90px;
+    margin-top: 70px;
     scale: 1.2;
 }
 
@@ -21,6 +21,7 @@ form {
 }
 
 .form-row label {
+    width: fit-content;
     display: flex;
     flex: 1;
     flex-direction: column;

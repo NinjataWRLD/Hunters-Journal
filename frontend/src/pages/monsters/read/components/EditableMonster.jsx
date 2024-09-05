@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { EditMonster } from "../../../../requests/monsters";
-import "../ReadMonsters.css"
+import "../ReadMonsters.css";
 
 function EditableMonster({ monster, setIsEditable, setMonster }) {
     const { register, handleSubmit } = useForm({ defaultValues: monster });
@@ -18,6 +18,15 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
     return (
         <>
             <form className={"edit-form"} onSubmit={handleSubmit(onSubmit)}>
+                <div className="form-row">
+                <label htmlFor="name" className={"edit-info"}>
+                    Name:
+                    <input
+                        type="text"
+                        id="name"
+                        {...register("name")}
+                    />
+                </label>    
                 <label htmlFor="age" className={"edit-info"}>
                     Age:
                     <input
@@ -26,15 +35,9 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                         {...register("age")}
                         style={{width: 100}}
                     />
-                </label>
-                <label htmlFor="name" className={"edit-info"}>
-                    Name:
-                    <input
-                        type="text"
-                        id="name"
-                        {...register("name")}
-                    />
-                </label>
+                </label>          
+                </div>
+                <div className="form-row">
                 <label htmlFor="hp" className={"edit-info"}>
                     HP:
                     <input
@@ -53,6 +56,15 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                         <option value="Legendary">Legendary</option>
                     </select>
                 </label>
+                <label htmlFor="invisibility" className={"edit-info"}>
+                    Invisibility:
+                    <select style={{"fontWeight": "bold", "width": 90}} id="invisibility" {...register("invisibility")}>
+                        <option value={false}>Visible</option>
+                        <option value={true}>Invisible</option>
+                    </select>
+                </label>
+                </div>
+                <div className="form-row">
                 <label htmlFor="strength" className={"edit-info"}>
                     Strengths:
                     <textarea
@@ -67,13 +79,8 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                         {...register("weakness")}
                     />
                 </label>
-                <label htmlFor="invisibility" className={"edit-info"}>
-                    Invisibility:
-                    <select style={{"fontWeight": "bold", "width": 90}} id="invisibility" {...register("invisibility")}>
-                        <option value={false}>Visible</option>
-                        <option value={true}>Invisible</option>
-                    </select>
-                </label>
+                </div>
+                <div className="form-row">
                 <label htmlFor="image" className="url">
                     Image:
                     <input
@@ -81,12 +88,13 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                         id="image"
                         {...register("image")}
                     />
-                </label>
+                </label>              
+                </div>
                     <input
                     className="submit"
                         id="submit"
                         type="submit"
-                        value={"Submit"}
+                        value={"Apply"}
                     />
             </form>
         </>

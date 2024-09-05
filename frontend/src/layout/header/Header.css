@@ -34,6 +34,7 @@ header {
     padding: 10px;
     border-radius: 10px;
     margin-right: 10px;
+    font-weight: 300;
 }
 
 .dropdown-menu li a {

@@ -134,19 +134,20 @@ section {
 }
 
 .edit-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     width: 100%;
     height: 100%;
     position: relative;
-    overflow-y: auto;
-    direction: rtl;
-    text-align: left;
+    overflow-y: none;
+    overflow-x: none;
 }
 
-.edit-form > * {
-    direction: ltr;
-    text-align: left;
+.form-row label{
+    width: 200px;
+}
+
+label.url {
+    width: 100%;
 }
 
 .edit-info {
@@ -176,12 +177,18 @@ input[type="number"] {
 }
 
 .url {
-    grid-column: span 1;
-    justify-self: right;
     text-align: center;
+}
+
+textarea {
+    height: 150px;
 }
 
 a {
     color: yellow;
     text-decoration: none;
+}
+
+#submit {
+    border: 2px solid yellow;
 }
