@@ -31,7 +31,7 @@ form {
     cursor: url("../../../assets/cursor1.cur"), auto;
 }
 
-input[type="text"] {
+#name, #image {
     font-family: "VT323", monospace;
     width: 100%;
     height: 40px;
@@ -166,4 +166,12 @@ input[type=number] {
 .label {
     display: flex;
     flex-direction: column;
+}
+
+#name::placeholder {
+    font-size: 0.8rem;
+}
+
+#weakness::placeholder, #strength::placeholder {
+    color: rgba(255, 255, 255, 0.473);
 }

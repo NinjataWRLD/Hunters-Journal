@@ -32,6 +32,7 @@ function Create() {
                                 maxLength: { value: 15, message: "Maximum 15 characters" }
                             })}
                             autoComplete="off"
+                            placeholder="monster's name here"
                         />
                         {errors.name && <span className={styles.error}>{errors.name.message}</span>}
                     </label>
@@ -46,6 +47,7 @@ function Create() {
                                     maxLength: { value: 9, message: "Invalid age" }
                                 })}
                             autoComplete="off"
+                            placeholder="age..."
                         />
                         {errors.name && <span className={styles.error}>{errors.age.message}</span>}
                     </label>
@@ -60,6 +62,7 @@ function Create() {
                                     maxLength: { value: 9, message: "Invalid HP" }
                                 })}
                             autoComplete="off"
+                            placeholder="hp..."
                         />
                         {errors.name && <span className={styles.error}>{errors.hp.message}</span>}
                     </label>
@@ -107,6 +110,7 @@ function Create() {
                                 })}
                             autoComplete="off"
                             className={styles.large}
+                            placeholder="Type monster's strengths..."
                         />
                         {errors.name && <span className={styles.error}>{errors.strength.message}</span>}
                     </label>
@@ -126,6 +130,7 @@ function Create() {
                                 })}
                             autoComplete="off"
                             className={styles.large}
+                            placeholder="Type monster's weaknesses..."
                         />
                         {errors.name && <span className={styles.error}>{errors.weakness.message}</span>}
                     </label>

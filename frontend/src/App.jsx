@@ -10,7 +10,6 @@ function App() {
 	const [loading, setLoading] = useState(true);
 	const backgroundMusicRef = useRef();
 	const location = useLocation();
-	const nodeRef = useRef(null);
 
 	const playMusic = () => {
 		const audio = backgroundMusicRef.current;
@@ -56,6 +55,8 @@ function App() {
 		return () => clearTimeout(timer);
 	}, [location]);
 
+	const hideFooter = ['/privacy-policy'];
+
 	return (
 		<div className="old-crt-monitor">
 			<Context.Provider value={{ isPlaying, toggleVolume, playMusic, stopMusic, toggleMusic }}>
@@ -84,7 +85,7 @@ function App() {
 							/>
 						</div>
 					)}
-					<Footer />
+					 {!hideFooter.includes(location.pathname) && <Footer />}
 				</div>
 			</Context.Provider>
 		</div>

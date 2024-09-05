@@ -1,0 +1,8 @@
+.main {
+    overflow: auto;
+}
+
+hr {
+    border-color: yellow;
+    background-color: yellow;
+}

@@ -18,7 +18,7 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
     return (
         <>
             <form className={styles["edit-form"]} onSubmit={handleSubmit(onSubmit)}>
-                <div className={styles["form-row"]}>
+                <div className={`${styles["form-row"]} ${styles["first"]}`}>
                     <label htmlFor={styles.name} className={styles["edit-info"]}>
                         Name:
                         <input
@@ -64,7 +64,7 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                         </select>
                     </label>
                 </div>
-                <div className={styles["form-row"]}>
+                <div className={`${styles["form-row"]} ${styles.last}`}>
                     <label htmlFor={styles.strength} className={styles["edit-info"]}>
                         Strengths:
                         <textarea
@@ -82,7 +82,7 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                 </div>
                 <div className={styles["form-row"]}>
                     <label htmlFor={styles.image} className={styles.url}>
-                        Image:
+                        Image URL:
                         <input
                             type="text"
                             id={styles.image}
@@ -90,11 +90,16 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                         />
                     </label>
                 </div>
-                <input
-                    className={styles.submit}
-                    type="submit"
-                    value={"Apply"}
-                />
+                <div className={styles.btn}>
+                    <button onClick={() => setIsEditable(false)} className={styles["edit-2"]}>Go back</button>
+                    <div className={styles["apply-div"]}>
+                        <input
+                            className={styles.apply}
+                            type="submit"
+                            value={"Apply"}
+                        />
+                    </div>
+                </div>
             </form>
         </>
     );

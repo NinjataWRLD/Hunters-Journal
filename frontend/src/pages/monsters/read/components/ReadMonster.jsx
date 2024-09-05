@@ -26,29 +26,33 @@ function ReadMonster() {
 	}
 
 	async function handleDelete(id) {
-        try {
-            await DeleteMonster(id);
+		try {
+			await DeleteMonster(id);
 			navigate("/monsters");
-        } catch (error) {
-            console.error(e);
-        }
-    }
+		} catch (error) {
+			console.error(e);
+		}
+	}
 
 	return (
-		<div className={styles["actions expanded"]}>
-			<section>
+		<div className={`${styles.actions} ${styles.expanded}`}>
+			<section className={styles.section}>
 				{isEditable
 					? <EditableMonster monster={monster} setMonster={setMonster} setIsEditable={setIsEditable} />
 					: <ReadOnlyMonster monster={monster} />
 				}
 			</section>
-			{
-				isEditable
-				? <button onClick={() => setIsEditable(false)} className={styles.edit}>Go back</button>
-				: <button onClick={() => setIsEditable(true)} className={styles.edit}>Edit</button>
+			{isEditable
+				? '' : <div className={styles.buttons}>
+					{
+						isEditable
+							? <button onClick={() => setIsEditable(false)} className={styles.edit}>Go back</button>
+							: <button onClick={() => setIsEditable(true)} className={styles.edit}>Edit</button>
+					}
+					<button onClick={() => handleDelete(monster._id)} className={styles.delete}>Delete</button>
+				</div>
 			}
-			<button onClick={() => handleDelete(monster._id)} className={styles.delete}>Delete</button>
-			<span className={styles.close}><Link to={"/monsters"}>&#10006;</Link></span>
+			<span><Link to={"/monsters"} className={styles.close}>&#10006;</Link></span>
 		</div>
 	)
 }
