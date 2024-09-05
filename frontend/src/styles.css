@@ -28,7 +28,7 @@ body {
 div.retro-container {
   width: 90vw;
   height: 90vh;
-  display: grid;
+  display: grid !important; 
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
   padding: 0.5rem;
@@ -37,6 +37,33 @@ div.retro-container {
   mask-image: linear-gradient(to bottom, #0005 50%, #000 50%);
   mask-size: 100% 2px;
   text-shadow: 0 0 0.5rem;
+}
+
+.volume-control {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  margin-bottom: 65px;
+  margin-right: 20px;
+  width: 200px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.volume-control input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.volume-control label {
+  margin-bottom: 10px;
 }
 
 li a {

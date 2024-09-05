@@ -71,21 +71,23 @@ function App() {
 						<source src="/music/music.mp3" type="audio/mpeg" />
 						Your browser does not support the audio element.
 					</audio>
-					{isPlaying && (
-						<div className="volume-control">
-							<label htmlFor="volume">Volume:</label>
-							<input
-								id="volume"
-								type="range"
-								min="0"
-								max="1"
-								step="0.01"
-								defaultValue="0.2"
-								onChange={toggleVolume}
-							/>
-						</div>
-					)}
-					 {!hideFooter.includes(location.pathname) && <Footer />}
+					<div className="volume">
+						{isPlaying && (
+							<div className="volume-control">
+								<label htmlFor="volume">Volume:</label>
+								<input
+									id="volume"
+									type="range"
+									min="0"
+									max="1"
+									step="0.01"
+									defaultValue="0.2"
+									onChange={toggleVolume}
+								/>
+							</div>
+						)}
+					</div>
+					{!hideFooter.includes(location.pathname) && <Footer />}
 				</div>
 			</Context.Provider>
 		</div>
