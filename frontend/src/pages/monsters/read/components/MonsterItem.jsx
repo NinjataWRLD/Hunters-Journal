@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "../ReadMonsters.css";
 
 function ReadItem({ monster, handleMonsterClick }) {
     return (

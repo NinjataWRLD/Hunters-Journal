@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import ReadOnlyMonster from "./ReadOnlyMonster";
 import EditableMonster from "./EditableMonster";
 import { GetMonster, DeleteMonster } from "../../../../requests/monsters";
-import "../ReadMonsters.css"
+import styles from "../ReadMonsters.module.css";
 
 function ReadMonster() {
 	const [isEditable, setIsEditable] = useState(false);
@@ -35,7 +35,7 @@ function ReadMonster() {
     }
 
 	return (
-		<div className="actions expanded">
+		<div className={styles["actions expanded"]}>
 			<section>
 				{isEditable
 					? <EditableMonster monster={monster} setMonster={setMonster} setIsEditable={setIsEditable} />
@@ -44,11 +44,11 @@ function ReadMonster() {
 			</section>
 			{
 				isEditable
-				? <button onClick={() => setIsEditable(false)} className="edit">Go back</button>
-				: <button onClick={() => setIsEditable(true)} className="edit">Edit</button>
+				? <button onClick={() => setIsEditable(false)} className={styles.edit}>Go back</button>
+				: <button onClick={() => setIsEditable(true)} className={styles.edit}>Edit</button>
 			}
-			<button onClick={() => handleDelete(monster._id)} className="delete">Delete</button>
-			<span className="close"><Link to={"/monsters"}>&#10006;</Link></span>
+			<button onClick={() => handleDelete(monster._id)} className={styles.delete}>Delete</button>
+			<span className={styles.close}><Link to={"/monsters"}>&#10006;</Link></span>
 		</div>
 	)
 }

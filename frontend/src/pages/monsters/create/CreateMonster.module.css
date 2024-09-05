@@ -162,3 +162,8 @@ input[type=number] {
     font-size: 0.7rem;
     color: red;
 }
+
+.label {
+    display: flex;
+    flex-direction: column;
+}

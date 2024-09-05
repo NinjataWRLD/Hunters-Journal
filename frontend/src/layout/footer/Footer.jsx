@@ -1,17 +1,18 @@
-import './Footer.css';
+import { Link } from 'react-router-dom';
+import styles from './Footer.module.css';
 
 function Footer() {
     return (
         <>
-        <footer>
+        <footer className={styles.footer}>
             <p>&copy; 2024 Demo. All rights reserved.</p> |
             <p>
               Follow us on
-              <a target="_blank" href="https://x.com/customcads/"> Twitter </a> and
-              <a target="_blank" href="https://www.instagram.com/custom_cads/"> Instagram</a>
+              <Link target="_blank" to="https://x.com/customcads/"> Twitter </Link> and
+              <Link target="_blank" to="https://www.instagram.com/custom_cads/"> Instagram</Link>
             </p> |
             <p>
-              <a target="_blank" href="/privacy-policy">Privacy Policy</a>
+              <Link to="/privacy-policy">Privacy Policy</Link>
             </p>
           </footer>
         </>

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { CreateMonster } from '@/requests/monsters';
-import "./CreateMonster.css";
+import styles from "./CreateMonster.module.css";
 
 function Create() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -21,11 +21,11 @@ function Create() {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-row">
-                    <label htmlFor="name" id="content-name">
+                <div className={styles["form-row"]}>
+                    <label htmlFor={styles.name} id={styles["content-name"]} className={styles.label}>
                         Name:
                         <input
-                            id="name"
+                            id={styles.name}
                             type="text"
                             {...register("name", {
                                 required: "Name is required",
@@ -33,12 +33,12 @@ function Create() {
                             })}
                             autoComplete="off"
                         />
-                        {errors.name && <span className="error">{errors.name.message}</span>}
+                        {errors.name && <span className={styles.error}>{errors.name.message}</span>}
                     </label>
-                    <label htmlFor="age" id="content-age">
+                    <label htmlFor={styles.age} id={styles["content-age"]} className={styles.label}>
                         Age:
                         <input
-                            id="age"
+                            id={styles.age}
                             type="number"
                             {...register("age",
                                 {
@@ -47,12 +47,12 @@ function Create() {
                                 })}
                             autoComplete="off"
                         />
-                        {errors.name && <span className="error">{errors.age.message}</span>}
+                        {errors.name && <span className={styles.error}>{errors.age.message}</span>}
                     </label>
-                    <label htmlFor="hp" id="content-hp">
+                    <label htmlFor={styles.hp} id={styles["content-hp"]} className={styles.label}>
                         Health:
                         <input
-                            id="hp"
+                            id={styles.hp}
                             type="number"
                             {...register("hp",
                                 {
@@ -61,73 +61,73 @@ function Create() {
                                 })}
                             autoComplete="off"
                         />
-                        {errors.name && <span className="error">{errors.hp.message}</span>}
+                        {errors.name && <span className={styles.error}>{errors.hp.message}</span>}
                     </label>
                 </div>
-                <div className="form-row second">
-                    <div className="inner-row">
-                        <label htmlFor="rarity" id="content-rarity">
+                <div className={styles["form-row"]}>
+                    <div className={styles["inner-row"]}>
+                        <label htmlFor={styles.rarity} id={styles["content-rarity"]}>
                             Rarity:
-                            <select id="rarity" {...register("rarity")}>
+                            <select id={styles.rarity} {...register("rarity")}>
                                 <option value="Common">Common</option>
                                 <option value="Rare">Rare</option>
                                 <option value="Epic">Epic</option>
                                 <option value="Legendary">Legendary</option>
                             </select>
                         </label>
-                        <label htmlFor="invisibility" id="content-invisibility">
+                        <label htmlFor={styles.invisibility} id={styles["content-invisibility"]} className={styles.label}>
                             Invisibility:
-                            <select id="invisibility" {...register("invisibility")}>
+                            <select id={styles.invisibility} {...register("invisibility")}>
                                 <option value={false}>Visible</option>
                                 <option value={true}>Invisible</option>
                             </select>
                         </label>
                     </div>
-                    <label htmlFor="image" id="content-image">
+                    <label htmlFor={styles.image} id={styles["content-image"]} className={styles.label}>
                         Image URL:
                         <input
-                            id="image"
+                            id={styles.image}
                             type="text"
                             {...register("image")}
                             autoComplete="off"
-                            className="url"
+                            className={styles.url}
                             placeholder="(not required)"
                         />
                     </label>
                 </div>
-                <div className="form-row last">
-                    <label htmlFor="strength" id="content-strength">
+                <div className={styles["form-row"]}>
+                    <label htmlFor={styles.strength} id={styles["content-strength"]} className={styles.label}>
                         Power and Abilities:
                         <textarea
-                            id="strength"
+                            id={styles.strength}
                             {...register("strength",
                                 {
                                     required: "Strength is required",
                                     maxLength: { value: 100, message: "Description too long" }
                                 })}
                             autoComplete="off"
-                            className="large"
+                            className={styles.large}
                         />
-                        {errors.name && <span className="error">{errors.strength.message}</span>}
+                        {errors.name && <span className={styles.error}>{errors.strength.message}</span>}
                     </label>
                     <input
                         type="submit"
                         value={"Create"}
-                        className="submit"
+                        className={styles.submit}
                     />
-                    <label htmlFor="weakness" id="content-weakness">
+                    <label htmlFor={styles.weakness} id={styles["content-weakness"]} className={styles.label}>
                         Weaknesses:
                         <textarea
-                            id="weakness"
+                            id={styles.weakness}
                             {...register("weakness",
                                 {
                                     required: "Weaknesses are required",
                                     maxLength: { value: 100, message: "Description too long" }
                                 })}
                             autoComplete="off"
-                            className="large"
+                            className={styles.large}
                         />
-                        {errors.name && <span className="error">{errors.weakness.message}</span>}
+                        {errors.name && <span className={styles.error}>{errors.weakness.message}</span>}
                     </label>
                 </div>
             </form>

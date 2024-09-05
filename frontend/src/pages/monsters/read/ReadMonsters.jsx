@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { GetAllMonsters } from '@/requests/monsters';
 import MonsterItem from "./components/MonsterItem"
-import './ReadMonsters.css';
+import styles from './ReadMonsters.module.css';
 
 function ReadMonsters() {
     const [monsters, setMonsters] = useState([]);
@@ -17,11 +17,11 @@ function ReadMonsters() {
 
     return (
         <>
-            <div className="content" style={{ "display": (!showContent) ? "none" : "flex" }}>
+            <div className={styles.content} style={{ "display": (!showContent) ? "none" : "flex" }}>
                 <h2>Available creatures:</h2>
-                <div className="items">
+                <div className={styles.items}>
                     {monsters.length ? monsters.map(monster => (
-                        <div className="hell_list" key={monster._id}>
+                        <div className={styles["hell_list"]} key={monster._id}>
                             <MonsterItem
                                 monster={monster}
                                 handleMonsterClick={handleMonsterClick}
