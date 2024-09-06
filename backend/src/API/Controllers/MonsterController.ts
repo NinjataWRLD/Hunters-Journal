@@ -35,7 +35,7 @@ export const getMonster = async (req: Request, res: Response) => {
 export const postMonster = async (req: Request, res: Response) => {
     try {
         const { name, invisibility, hp, damage, rarity, strength, weakness, image } = req.body;
-        const dto = { name, invisibility, hp, damage, rarity, strength, weakness, image };
+        const dto = { name, invisibility, hp, damage, rarity, strength, weakness, image, won: 0 };
         const monster = MonsterRepository.addAsync(dto);
 
         return res.status(201).send(monster);
