@@ -29,6 +29,7 @@ function Header() {
                             <ul className={styles["dropdown-menu"]}>
                                 <li><Link to="/monsters">Monsters</Link></li>
                                 <li><Link to="/humans">Humans</Link></li>
+                                <li><Link to="/fight">Battle</Link></li>
                             </ul>
                         </div>
                     </li>

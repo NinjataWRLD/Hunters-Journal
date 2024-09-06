@@ -1,3 +1,3 @@
-import axios from '../axios';
+import axios from './axios';
 
-export const Fight = async () => await axios.get('/api/fight');
+export const Fighters = async () => await axios.get('/api/fight');

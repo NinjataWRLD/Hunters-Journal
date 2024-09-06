@@ -13,7 +13,7 @@ function ReadOnlyHuman({ human }) {
                 <img className={styles.image} src={human.image} alt="Not valid link" />
                 <div className={styles.fights}>
                     <h2>Won fights:</h2>
-                    <h3 className={styles.counter}>0</h3>
+                    <h3 className={styles.counter}>{human.won}</h3>
                 </div>
             </div>
         </>
