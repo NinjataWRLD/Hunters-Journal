@@ -216,3 +216,20 @@ input[type=number] {
 #weakness::placeholder, #strength::placeholder {
     color: rgba(255, 255, 255, 0.473);
 }
+
+.content-gender {
+    display: flex;
+    gap: 10px;
+}
+
+.persuasion {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.wrap {
+    display: flex;
+    gap: 40px;
+}

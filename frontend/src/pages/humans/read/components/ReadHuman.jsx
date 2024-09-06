@@ -44,17 +44,13 @@ function ReadHuman() {
 			</section>
 			{isEditable
 				? '' : <div className={styles.buttons}>
-					{
-						isEditable
-							? <button onClick={() => setIsEditable(false)} className={styles.edit}>Go back</button>
-							: <button onClick={() => setIsEditable(true)} className={styles.edit}>Edit</button>
-					}
+					<button onClick={() => setIsEditable(true)} className={styles.edit}>Edit</button>
 					<button onClick={() => handleDelete(human._id)} className={styles.delete}>Delete</button>
 				</div>
 			}
 			<span><Link to={"/humans"} className={styles.close}>&#10006;</Link></span>
 		</div>
-	)
+	);
 }
 
 export default ReadHuman;

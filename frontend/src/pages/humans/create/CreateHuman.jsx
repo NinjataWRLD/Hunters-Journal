@@ -49,7 +49,7 @@ function Create() {
                             autoComplete="off"
                             placeholder="damage..."
                         />
-                        {errors.name && <span className={styles.error}>{errors.damage.message}</span>}
+                        {errors.damage && <span className={styles.error}>{errors.damage.message}</span>}
                     </label>
                     <label htmlFor={styles.hp} id={styles["content-hp"]} className={styles.label}>
                         Health:
@@ -64,7 +64,7 @@ function Create() {
                             autoComplete="off"
                             placeholder="hp..."
                         />
-                        {errors.name && <span className={styles.error}>{errors.hp.message}</span>}
+                        {errors.hp && <span className={styles.error}>{errors.hp.message}</span>}
                     </label>
                 </div>
                 <div className={styles["form-row"]}>
@@ -78,6 +78,34 @@ function Create() {
                                 <option value="Legendary">Legendary</option>
                             </select>
                         </label>
+                        <label className={styles.persuasion}>
+                            <span>Gender:</span>
+                            <div className={styles.wrap}>
+                            <label htmlFor={styles.gender} className={styles["content-gender"]}>
+                                Male
+                                <input
+                                    type="radio"
+                                    value={"M"}
+                                    {...register("gender",
+                                        {
+                                            required: "Gender is required",
+                                        })}
+                                />
+                            </label>
+                            <label htmlFor={styles.gender} className={styles["content-gender"]}>
+                                Female
+                                <input
+                                    type="radio"
+                                    value={"F"}
+                                    {...register("gender",
+                                        {
+                                            required: "Gender is required",
+                                        })}
+                                />
+                            </label>
+                            </div>
+                        </label>
+                        {errors.gender && <span className={styles.error}>{errors.gender.message}</span>}
                     </div>
                     <label htmlFor={styles.image} id={styles["content-image"]} className={styles.label}>
                         Image URL:
