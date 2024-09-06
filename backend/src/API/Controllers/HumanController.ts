@@ -34,8 +34,8 @@ export const getHuman = async (req: Request, res: Response) => {
 
 export const postHuman = async (req: Request, res: Response) => {
     try {
-        const { name, invisibility, hp, damage, rarity, strength, weakness } = req.body;
-        const dto = { name, invisibility, hp, damage, rarity, strength, weakness };
+        const { name, hp, damage, rarity, strength, weakness } = req.body;
+        const dto = { name, hp, damage, rarity, strength, weakness };
         const human = HumanRepository.addAsync(dto);
 
         return res.status(201).send(human);

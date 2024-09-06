@@ -24,7 +24,7 @@ function Header() {
                     <li><Link className={styles["list-item"]} to="/monsters">MONSTERS</Link></li>|
                     <li><Link className={styles["list-item"]} to="/humans">HUMANS</Link></li>
                     <li className={styles["settings"]}>
-                    <li className={styles["volume-icon"]} onClick={toggleMusic}><FontAwesomeIcon icon={switchIcon()}/></li>
+                    <ul><li className={styles["volume-icon"]} onClick={toggleMusic}><FontAwesomeIcon icon={switchIcon()}/></li></ul>
                         <div className={styles["settings-icon"]}><img src="/settings.png" alt="settings-icon" width={44} height={44}></img>
                             <ul className={styles["dropdown-menu"]}>
                                 <li><Link to="/monsters">Monsters</Link></li>

@@ -114,11 +114,13 @@ function Create() {
                         />
                         {errors.name && <span className={styles.error}>{errors.strength.message}</span>}
                     </label>
-                    <input
-                        type="submit"
-                        value={"Create"}
-                        className={styles.submit}
-                    />
+                    <div className={styles["submit-effect"]}>
+                        <input
+                            type="submit"
+                            value={"Create"}
+                            className={styles.submit}
+                        />
+                    </div>
                     <label htmlFor={styles.weakness} id={styles["content-weakness"]} className={styles.label}>
                         Weaknesses:
                         <textarea
