@@ -27,12 +27,12 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
                             {...register("name")}
                         />
                     </label>
-                    <label htmlFor={styles.age} className={styles["edit-info"]}>
-                        Age:
+                    <label htmlFor={styles.damage} className={styles["edit-info"]}>
+                        Damage:
                         <input
                             type="number"
-                            id={styles.age}
-                            {...register("age")}
+                            id={styles.damage}
+                            {...register("damage")}
                             style={{ width: 100 }}
                         />
                     </label>

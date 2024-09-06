@@ -36,20 +36,20 @@ function Create() {
                         />
                         {errors.name && <span className={styles.error}>{errors.name.message}</span>}
                     </label>
-                    <label htmlFor={styles.age} id={styles["content-age"]} className={styles.label}>
-                        Age:
+                    <label htmlFor={styles.damage} id={styles["content-damage"]} className={styles.label}>
+                        Damage:
                         <input
-                            id={styles.age}
+                            id={styles.damage}
                             type="number"
-                            {...register("age",
+                            {...register("damage",
                                 {
-                                    required: "Age is required",
-                                    maxLength: { value: 9, message: "Invalid age" }
+                                    required: "Damage is required",
+                                    maxLength: { value: 5, message: "Invalid damage" }
                                 })}
                             autoComplete="off"
-                            placeholder="age..."
+                            placeholder="damage..."
                         />
-                        {errors.name && <span className={styles.error}>{errors.age.message}</span>}
+                        {errors.name && <span className={styles.error}>{errors.damage.message}</span>}
                     </label>
                     <label htmlFor={styles.hp} id={styles["content-hp"]} className={styles.label}>
                         Health:
