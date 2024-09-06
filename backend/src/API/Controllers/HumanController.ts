@@ -11,18 +11,21 @@ const handleInternalServerError = (res: Response, error: any) => res.status(500)
 export const getHumans = async (req: Request, res: Response) => {
     try {
         const human = await HumanRepository.getAllAsync();
+        
         return res.status(200).send(human);
     } catch (e) {
         return handleInternalServerError(res, e);
     }
-}
+};
 
 export const getHuman = async (req: Request, res: Response) => {
     try {
-        const human = await HumanRepository.getByIdAsync(req.params.id);
+        const { id } = req.params;
+        const human = await HumanRepository.getByIdAsync(id);
         if (!human) {
             return handleNotFound(res);
         }
+
         return res.status(200).send(human);
     } catch (e) {
         return handleInternalServerError(res, e);
@@ -31,17 +34,10 @@ export const getHuman = async (req: Request, res: Response) => {
 
 export const postHuman = async (req: Request, res: Response) => {
     try {
-        const data = {
-            name: req.body.name,
-            invisibility: req.body.invisibility,
-            hp: req.body.hp,
-            age: req.body.age,
-            rarity: req.body.rarity,
-            strength: req.body.strength,
-            weakness: req.body.weakness,
-            image: req.body.image        
-        };
-        const human = HumanRepository.addAsync(data);
+        const { name, invisibility, hp, damage, rarity, strength, weakness } = req.body;
+        const dto = { name, invisibility, hp, damage, rarity, strength, weakness };
+        const human = HumanRepository.addAsync(dto);
+
         return res.status(201).send(human);
     } catch (e) {
         return handleInternalServerError(res, e);
@@ -50,8 +46,7 @@ export const postHuman = async (req: Request, res: Response) => {
 
 
 export const patchHuman = async (req: Request, res: Response) => {
-    const id = req.params.id;
-    const operations = req.body;
+    const { params: { id }, body: operations } = req;
 
     try {
         let human = await HumanRepository.getByIdAsync(id);
@@ -61,6 +56,7 @@ export const patchHuman = async (req: Request, res: Response) => {
 
         human = apply_patch(human.toObject(), operations);
         await HumanRepository.updateAsync(id, human);
+
         return res.status(204).send();
     } catch (e) {
         return handleInternalServerError(res, e);
@@ -70,8 +66,9 @@ export const patchHuman = async (req: Request, res: Response) => {
 
 export const putHuman = async (req: Request, res: Response) => {
     try {
-        const id = req.params.id;
+        const { id } = req.params;
         await HumanRepository.updateAsync(id, req.body);
+
         return res.status(204).send();
     } catch (e) {
         return handleInternalServerError(res, e);
@@ -80,8 +77,9 @@ export const putHuman = async (req: Request, res: Response) => {
 
 export const deleteHuman = async (req: Request, res: Response) => {
     try {
-        const id = req.params.id;
+        const { id } = req.params;
         await HumanRepository.deleteAsync(id);
+
         res.status(204).send();
     } catch (e) {
         return handleInternalServerError(res, e);
