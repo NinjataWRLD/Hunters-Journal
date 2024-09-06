@@ -69,3 +69,11 @@
 .nav {
     flex-grow: 1;
 }
+
+.volume-icon {
+    position: absolute;
+    right: 90px;
+    top: 5px;
+    font-size: 1.2rem;
+    cursor: url("../../assets/pointer.cur"), pointer;
+}
