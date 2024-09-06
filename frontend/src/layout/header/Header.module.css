@@ -1,4 +1,4 @@
-header {
+.header {
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -6,6 +6,7 @@ header {
 
 .settings {
     position: relative;
+    margin-right: 10px;
 }
 
 .settings-icon {
@@ -31,9 +32,11 @@ header {
 
 .dropdown-menu li {
     color: black;
+    font-size: 1rem;
     padding: 10px;
     border-radius: 10px;
     margin-right: 10px;
+    font-weight: 300;
 }
 
 .dropdown-menu li a {
@@ -41,7 +44,7 @@ header {
     color: black;
 }
 
-.settings:hover .dropdown-menu {
+.settings-icon:hover .dropdown-menu {
     display: block;
 }
 
@@ -53,18 +56,16 @@ header {
     background-color: #ff5c00;
 }
 
-ul {
+.nav-menu {
+    justify-content: space-between;
+    align-items: center;
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
+    gap: 0;
 }
 
-.nav-menu {
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav {
+.nav {
     flex-grow: 1;
 }

@@ -1,6 +1,6 @@
 import ReadPage from '../pages/monsters/read/ReadMonsters';
 import CreatePage from '../pages/monsters/create/CreateMonster';
-import EditPage from '@/pages/monsters/edit/EditMonster';
+import ReadMonster from '../pages/monsters/read/components/ReadMonster';
 
 export default [
     {
@@ -12,7 +12,7 @@ export default [
         element: <CreatePage />
     },
     {
-        path: '/edit/:id',
-        element: <EditPage />
-    },    
+        path: '/monsters/:id',
+        element: <ReadMonster />
+    }
 ];

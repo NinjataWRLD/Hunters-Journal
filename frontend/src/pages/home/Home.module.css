@@ -1,30 +1,4 @@
-.volume-control {
-    position: absolute;
-    right: 50px;
-    bottom: 0;
-    margin-bottom: 65px;
-    margin-right: 20px;
-    width: 200px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.volume-control input[type="range"] {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.volume-control label {
-    margin-bottom: 10px;
-}
-
-main {
+.main {
     overflow: hidden;
     width: 100%;
     display: flex;
@@ -32,7 +6,7 @@ main {
     align-items: center;
 }
 
-section {
+.section {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -64,12 +38,11 @@ section {
 .banner .slider .item {
     position: absolute;
     inset: 0 0 0 0;
-    transform: 
-        rotateY(calc( (var(--position) - 1) * (360 / 4) * 1deg)) 
-        translateZ(400px);
+    transform:
+        rotateY(calc((var(--position) - 1) * (360 / 4) * 1deg)) translateZ(400px);
 }
 
-.banner .slider .item button{
+.banner .slider .item button {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -88,12 +61,14 @@ section {
     0% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
 }
 
-.left-rotate, .right-rotate {
+.left-rotate,
+.right-rotate {
     position: absolute;
     top: 50%;
     transform: translateY(-120%);
@@ -102,7 +77,7 @@ section {
     cursor: url('../assets/cursor1.cur'), pointer;
     font-family: "VT323", monospace;
     z-index: 10;
-    width:80px;
+    width: 80px;
     height: 80px;
     background: transparent;
     color: yellow;
@@ -144,4 +119,39 @@ section {
 .left-rotate:hover,
 .right-rotate:hover {
     background-color: #555;
+}
+
+.button-special {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    font-family: "VT323", monospace;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    text-decoration: none;
+    cursor: url('src/assets/cursor1.cur'), pointer;
+    box-shadow: 0 0 1rem var(--tertiary-color), 0 0 0.5rem var(--primary-color);
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 0 0.5rem var(--tertiary-color);
+    margin-left: 20px;
+}
+
+.button-special:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 1.5rem var(--tertiary-color), 0 0 1rem var(--primary-color);
+}
+
+.button-special:active {
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    box-shadow: inset 0 0 1rem var(--primary-color), inset 0 0 0.5rem var(--tertiary-color);
+}
+
+.button-special:focus {
+    outline: 2px dashed var(--primary-color);
+    outline-offset: 4px;
 }

@@ -1,74 +1,45 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { GetAllMonsters, DeleteMonster } from '@/requests/monsters';
+import { Link } from "react-router-dom";
+import { GetAllMonsters } from '@/requests/monsters';
 import MonsterItem from "./components/MonsterItem"
-import './ReadMonsters.css';
+import styles from './ReadMonsters.module.css';
 
 function ReadMonsters() {
     const [monsters, setMonsters] = useState([]);
     const [showContent, setShowContent] = useState(true);
-    const [showButtons, setShowButtons] = useState(false);
-    const [currentId, setCurrentId] = useState('No id provided');
-    const navigate = useNavigate();
 
     useEffect(() => {
         fetchMonsters();
     }, []);
 
-    async function handleDelete(id) {
-        try {
-            await DeleteMonster(id);
-            setMonsters((monster) => monster.filter((m) => m._id !== id));
-            setShowButtons(false);
-            setShowContent(true);
-        } catch (error) {
-            console.error(e);
-        }
-    }
-
-    const handleMonsterClick = (e) => {
-        setShowButtons(prev => !prev);
+    const handleMonsterClick = () => {
         setShowContent(prev => !prev);
-        setCurrentId(e.target.getAttribute("data-id"));
     };
-
-    const selectedMonster = monsters.find(monster => monster._id === currentId);
 
     return (
         <>
-            <div className="content" style={{ "display": (!showContent) ? "none" : "flex" }}>
+            <div className={styles.content} style={{ display: showContent ? "flex" : "none" }}>
                 <h2>Available creatures:</h2>
-                <div className="items">
-                    {monsters.length ? monsters.map(monster => (
-                        <div className="hell_list" key={monster._id}>
-                            <MonsterItem
-                                monsterr={monster}
-                                handleMonsterClick={handleMonsterClick}
-                            />
-                        </div>
-                    )) : <p>No available creatures!</p>}
-                </div>
-                <h3>Click to modify</h3>
-            </div>
-
-            <div className={`actions ${showButtons ? 'expanded' : ''}`}>
-                {showButtons && selectedMonster && (
-                    <>
-                        <section>
-                            <div>Name: <span className="inline-info">{selectedMonster.name}</span></div>
-                            <div>Age: <span className="inline-info">{selectedMonster.age}</span></div>
-                            <div>HP: <span className="inline-info">{selectedMonster.hp}</span></div>
-                            <div>Rarity: <span className="inline-info">{selectedMonster.rarity}</span></div>
-                            <div>Invisibility: <span className="inline-info">{(selectedMonster.invisibility) ? "Yes" : "No"}</span></div>
-                            <div>Strengths: <span className="inline-info">{selectedMonster.strengths}</span></div>
-                            <div>Weaknesses: <span className="inline-info">{(selectedMonster.weakness) ? `${selectedMonster.weakness}` : "None"}</span></div>
-                            <img className="image" src={selectedMonster.image} alt="Not valid link" />
-                        </section>
-                        <button onClick={() => navigate(`/edit/${currentId}`)} className="edit">Edit</button>
-                        <button onClick={() => handleDelete(currentId)} className="delete">Delete</button>
-                        <span onClick={handleMonsterClick} className="close">&#10006;</span>
-                    </>
+                {monsters.length ? (
+                    <div className={styles.items}>
+                        {monsters.map((monster) => (
+                            <div className={styles["item-list"]} key={monster._id}>
+                                <div className={styles["hell_list"]}>
+                                    <MonsterItem
+                                        monster={monster}
+                                        handleMonsterClick={handleMonsterClick}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className={styles.available}>
+                        No available creatures!
+                        <p>Click <Link to={"/monsters/new"}>here</Link> to add one</p>
+                    </div>
                 )}
+                <h3>Click to modify</h3>
             </div>
         </>
     );
