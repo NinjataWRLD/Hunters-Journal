@@ -1,0 +1,92 @@
+.container {
+    width: 100%;
+    height: 40%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.button {
+    font-family: "VT323", monospace;
+    width: 20%;
+    background-color: #f8d030;
+    color: #000;
+    border: 2px solid #b8a200;
+    border-radius: 20px;
+    padding: 12px 24px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    box-shadow: 0 5px 0 #a5a500, 0 10px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.1s ease;
+    cursor: url("../../assets/cursor1.cur"), pointer;
+}
+
+.button:hover {
+    box-shadow: 0 3px 0 #a5a500, 0 6px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(2px);
+}
+
+.button:active {
+    box-shadow: 0 1px 0 #a5a500, 0 2px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(4px);
+}
+
+.container span {
+    color: red;
+}
+
+.content, .spin {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.spin {
+    gap: 100px;
+}
+
+.human, .monster {
+    position: relative;
+    height: 90%;
+    width: 45%;
+    border: 2px solid yellow;
+    border-radius: 10px;
+}
+
+.human-spin, .monster-spin {
+    margin-top: 30px;
+    position: relative;
+    height: 100%;
+    width: 30%;
+    border: 2px solid orange;
+    border-radius: 20px;
+}
+
+.versus {
+    position: absolute;
+    top: 45%;
+    width: 250px;
+    height: 150px;
+    background-image: url('../../assets/versus.png');
+    background-size: cover;
+    background-position: center; 
+}
+
+.human-roulette, .monster-roulette {
+    margin-top: 40px;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
