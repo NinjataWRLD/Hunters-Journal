@@ -4,7 +4,10 @@ import { PatchHuman } from "../../requests/humans";
 import { PatchMonster } from "../../requests/monsters";
 import { GetAllHumans } from "../../requests/humans";
 import { GetAllMonsters } from "../../requests/monsters";
-import { Link } from 'react-router-dom';
+import FighterInfo from "./components/mini/FighterInfo";
+import ResultScreen from "./components/mini/ResultScreen";
+import Spin from "./components/mini/Spin";
+import StartScreen from "./components/mini/StartScreen";
 import Roulette from "./components/Roulette";
 import styles from "./Fight.module.css"
 
@@ -86,11 +89,6 @@ function Fight() {
         setIsError(true);
     }
 
-    const findBetterStat = (stat1, stat2) => {
-        if (stat1 > stat2) {
-        }
-    }
-
     const fighterWonUpdate = (type) => {
         const won = (type === "monster") ? monster.won : human.won;
         const updateWonProp = {
@@ -107,56 +105,17 @@ function Fight() {
 
     return (
         <>{!isShownMainScreen ?
-            (isShown ?
-                (!isShownResultScreen ?
-                    <div className={styles.content}>
-                        <div className={styles.human}>
-                            <h2>{human.name}</h2>
-                            <img className={styles.img} src={human.image} alt="Apply image!" />
-                            <div className={styles.info}>
-                                <p>Damage: {human.damage}</p>
-                            </div>
-                        </div>
-                        <div className={styles.monster}>
-                            <h2>{monster.name}</h2>
-                            <img className={styles.img} src={monster.image} alt="Apply image!" />
-                            <div className={styles.info}>
-                                <p>Damage: {monster.damage}</p>
-                            </div>
-                        </div>
-                        <div onClick={() => setIsShownResultScreen(true)} className={styles["result-btn"]}>Result</div>
-                    </div>
-                    : <div className={styles.result}>
-                        <h2>Winner:</h2>
-                        <div className={styles.home}><Link to={"/"}>Home</Link></div>
-                    </div>
+            (isShown
+                ? (!isShownResultScreen
+                    ? <FighterInfo human={human} monster={monster}
+                        setIsShownResultScreen={setIsShownResultScreen} />
+                    : <ResultScreen />
                 )
-                : <div className={styles.spin}>
-                    <div className={styles["human-spin"]}>
-                        <h2>Choosing human...</h2>
-                        <div className={styles["human-roulette"]}>
-                            <Roulette images={humanImages} targetName={human.name} />
-                        </div>
-                    </div>
-                    <div className={styles["monster-spin"]}>
-                        <h2>Choosing monster...</h2>
-                        <div className={styles["monster-roulette"]}>
-                            <Roulette images={monsterImages} targetName={monster.name} />
-                        </div>
-                    </div>
-                    <div className={styles.versus}></div>
-                    <div className={styles.continue} onClick={() => setIsShown(true)}>&#8594;</div>
-                </div>
+                : <Spin Roulette={Roulette} monsterImages={monsterImages}
+                    humanImages={humanImages} setIsShown={setIsShown}
+                    human={human} monster={monster} />
             )
-            : <div className={styles.container}>
-                <h2>Make sure you've applied images to all <span>humans</span> and <span>monsters</span></h2>
-                <button className={styles.button} onClick={() => hideMainScreen()}>Begin Battle</button>
-                <h3>(still in development)</h3>
-                {isError
-                    ? <div className={styles.error}>You need at least 3 images
-                        for humans and monsters individually to proceed!</div>
-                    : ''}
-            </div>
+            : <StartScreen isError={isError} hideMainScreen={hideMainScreen} />
         }
         </>
     );
