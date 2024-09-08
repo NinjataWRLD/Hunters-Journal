@@ -14,6 +14,7 @@ function Fight() {
     const [monsterImages, setMonsterImages] = useState([]);
     const [isShown, setIsShown] = useState(false);
     const [isShownMainScreen, setIsShownMainScreen] = useState(true);
+    const [isError, setIsError] = useState(false);
 
     async function fetchFighters() {
         try {
@@ -75,6 +76,14 @@ function Fight() {
         }
     }
 
+    const hideMainScreen = () => {
+        if (isShownMainScreen && humanImages.length > 2 && monsterImages.length > 2) {
+            setIsError(false);
+            return setIsShownMainScreen(false);
+        }
+        setIsError(true);
+    }
+
     return (
         <>{!isShownMainScreen ?
             (isShown ?
@@ -103,9 +112,13 @@ function Fight() {
                 </div>
             )
             : <div className={styles.container}>
-                    <h2>Make sure you've applied images to all <span>humans</span> and <span>monsters</span></h2>
-                    <button className={styles.button} onClick={() => setIsShownMainScreen(false)}>Begin Battle</button>
-                    <h3>(still in development)</h3>
+                <h2>Make sure you've applied images to all <span>humans</span> and <span>monsters</span></h2>
+                <button className={styles.button} onClick={() => hideMainScreen()}>Begin Battle</button>
+                <h3>(still in development)</h3>
+                {isError
+                    ? <div className={styles.error}>You need at least 3 images
+                    for humans and monsters individually to proceed!</div>
+                    : ''}
             </div>
         }
         </>
