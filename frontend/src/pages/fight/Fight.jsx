@@ -109,7 +109,7 @@ function Fight() {
                 ? (!isShownResultScreen
                     ? <FighterInfo human={human} monster={monster}
                         setIsShownResultScreen={setIsShownResultScreen} />
-                    : <ResultScreen />
+                    : <ResultScreen human={human} monster={monster} fighterWonUpdate={fighterWonUpdate}/>
                 )
                 : <Spin Roulette={Roulette} monsterImages={monsterImages}
                     humanImages={humanImages} setIsShown={setIsShown}
