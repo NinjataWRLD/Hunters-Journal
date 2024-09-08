@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { EditHuman } from "../../../../requests/humans";
 import styles from "../ReadHumans.module.css";
 
-function EditableHuman({ human, setIsEditable, setHuman }) {
+function EditableHuman({ human, setIsEditable, setHuman, actionsClass }) {
     const { register, handleSubmit } = useForm({ defaultValues: human });
 
     async function onSubmit(data) {
@@ -14,6 +14,10 @@ function EditableHuman({ human, setIsEditable, setHuman }) {
             console.error(error);
         }
     }
+    
+     if (actionsClass) {
+        actionsClass.style.overflowY = "scroll";
+     }
 
     return (
         <>

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { EditMonster } from "../../../../requests/monsters";
 import styles from "../ReadMonsters.module.css";
 
-function EditableMonster({ monster, setIsEditable, setMonster }) {
+function EditableMonster({ monster, setIsEditable, setMonster, actionsClass }) {
     const { register, handleSubmit } = useForm({ defaultValues: monster });
 
     async function onSubmit(data) {
@@ -14,6 +14,10 @@ function EditableMonster({ monster, setIsEditable, setMonster }) {
             console.error(error);
         }
     }
+
+    if (actionsClass) {
+        actionsClass.style.overflowY = "scroll";
+     }
 
     return (
         <>

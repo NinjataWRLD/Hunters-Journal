@@ -34,11 +34,17 @@ function ReadHuman() {
 		}
 	}
 
+	const actionsClass = document.getElementById('action');
+	if (actionsClass) {
+		actionsClass.style.overflowY = "hidden";
+	}
+
 	return (
-		<div className={`${styles.actions} ${styles.expanded}`}>
+		<div id="action" className={`${styles.actions} ${styles.expanded}`}>
 			<section className={styles.section}>
 				{isEditable
-					? <EditableHuman human={human} setHuman={setHuman} setIsEditable={setIsEditable} />
+					? <EditableHuman human={human}
+						setHuman={setHuman} setIsEditable={setIsEditable} actionsClass={actionsClass} />
 					: <ReadOnlyHuman human={human} />
 				}
 			</section>

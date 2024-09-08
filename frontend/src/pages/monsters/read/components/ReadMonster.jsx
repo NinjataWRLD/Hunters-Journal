@@ -34,11 +34,17 @@ function ReadMonster() {
 		}
 	}
 
+	const actionsClass = document.getElementById('action');
+	if (actionsClass) {
+		actionsClass.style.overflowY = "hidden";
+	}
+
 	return (
 		<div className={`${styles.actions} ${styles.expanded}`}>
 			<section className={styles.section}>
 				{isEditable
-					? <EditableMonster monster={monster} setMonster={setMonster} setIsEditable={setIsEditable} />
+					? <EditableMonster monster={monster}
+					 setMonster={setMonster} setIsEditable={setIsEditable} actionsClass={actionsClass} />
 					: <ReadOnlyMonster monster={monster} />
 				}
 			</section>

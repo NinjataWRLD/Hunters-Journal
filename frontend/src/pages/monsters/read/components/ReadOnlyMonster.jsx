@@ -9,8 +9,12 @@ function ReadOnlyMonster({ monster }) {
                 <div className={styles.info}>HP: <span className={styles["inline-info"]}>{monster.hp}</span></div>
                 <div className={styles.info}>Rarity: <span className={styles["inline-info"]}>{monster.rarity}</span></div>
                 <div className={styles.info}>Invisibility: <span className={styles["inline-info"]}>{(monster.invisibility) ? "Yes" : "No"}</span></div>
-                <div className={styles.info}>Strengths: <span className={styles["inline-info"]}>{(monster.strength)}</span></div>
-                <div className={styles.info}>Weaknesses: <span className={styles["inline-info"]}>{(monster.weakness) ? `${monster.weakness}` : "None"}</span></div>
+                <div className={styles.info}>Strengths:
+                    {monster.strength && monster.strength.length > 13 ? <br /> : <>&nbsp;</>}
+                    <span className={styles["inline-info"]}>{(monster.strength)}</span></div>
+                <div className={styles.info}>Weaknesses:
+                    {monster.weakness && monster.weakness.length > 13 ? <br /> : <>&nbsp;</>}
+                    <span className={styles["inline-info"]}>{(monster.weakness) ? `${monster.weakness}` : "None"}</span></div>
                 <img className={styles.image} src={monster.image} alt="Not valid link" />
                 <div className={styles.fights}>
                     <h2>Won fights:</h2>
