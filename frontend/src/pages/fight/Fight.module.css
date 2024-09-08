@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.button {
+.button, .continue, .result-btn, .home {
     font-family: "VT323", monospace;
     width: 20%;
     background-color: #f8d030;
@@ -27,12 +27,12 @@
     cursor: url("../../assets/cursor1.cur"), pointer;
 }
 
-.button:hover {
+.button:hover, .continue:hover, .result-btn:hover, .home:hover {
     box-shadow: 0 3px 0 #a5a500, 0 6px 0 rgba(0, 0, 0, 0.5);
     transform: translateY(2px);
 }
 
-.button:active {
+.button:active, .continue:active, .result-btn:active, .home:active {
     box-shadow: 0 1px 0 #a5a500, 0 2px 0 rgba(0, 0, 0, 0.5);
     transform: translateY(4px);
 }
@@ -58,7 +58,7 @@
 
 .human, .monster {
     position: relative;
-    height: 90%;
+    height: 85%;
     width: 45%;
     border: 2px solid yellow;
     border-radius: 10px;
@@ -91,6 +91,41 @@
     justify-content: center;
 }
 
+.continue {
+    position: absolute;
+    width: 8%;
+    display: none;
+    right: 55px;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 .error {
     color: red;
+}
+
+.img {
+    width: 40%;
+    height: 30%;
+    border-radius: 10px;
+}
+
+.result-btn {
+    position: absolute;
+    bottom: 0;
+    border: 2px solid yellow;
+    height: 40px;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display: none; */
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
 }
