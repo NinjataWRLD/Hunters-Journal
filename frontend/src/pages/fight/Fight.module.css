@@ -112,14 +112,14 @@
 
 .result-btn {
     position: absolute;
-    bottom: 0;
+    bottom: 40%;
     border: 2px solid yellow;
-    height: 40px;
+    border-radius: 50%;
+    height: 15%;
     width: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* display: none; */
 }
 
 .result {
@@ -128,4 +128,24 @@
     align-items: center;
     justify-content: center;
     gap: 50px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hr {
+    width: 50%;
+    margin: 5px;
+}
+
+.total {
+    margin-top: 10px;
+}
+
+.total span {
+    color: cyan;
 }
